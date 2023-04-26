@@ -1,0 +1,28 @@
+Transcrição
+[00:00] Como vimos no vídeo anterior, agora já sabemos como pegar um botão com JavaScript e também já sabemos como reproduzir o som de uma tag áudio quando quisermos, através da nossa própria função. Agora falta só um único detalhe, que é como vamos unir o botão que vai chamar a função que vai dar play e executar o som do nosso instrumento. Precisamos no meio de alguma coisa que vai chamar essa função.
+
+[00:34] E já sabemos, na verdade, o que é. Sabemos que é esse momento do usuário clicar em cima do botão do Midi. E na verdade até já vimos como fazer isso, de como fazer alguma coisa quando o usuário clica no botão. Então abrindo o VS Code, se formos no nosso elemento button e usar aquele e aquele atributo onclick que vimos que não é legal fazer, mas os usarmos só para testar a nossa função tocaSomPom.
+
+[01:14] Então digitei onclick="tocaSomPom()" salvei o HTML e voltamos no navegador e recarregarmos, eu vou ver que ao clicar no botão pom já vai funcionar.
+
+[01:31] Então já fizemos tudo isso, porém sabemos que JavaScript inline não é legal por vários motivos que não precisamos repetir, manutenção, difícil escalabilidade, mesma coisa que o CSS, então precisamos fazermos esse onclick lá de dentro do arquivo “main.js”, que é onde estamos mantendo as nossas boas práticas de JavaScript.
+
+[02:00] Lembrem que criamos aqui um código document.querySelector, passando o seletor da tecla pom, que é a classe tecla_pom. E sabemos que esse código vai trazer o botão da tecla Pom. Se estamos com dúvida, eu posso até copiar esse código, vou copiar aqui, voltar lá no navegador, abrir a aba console colar e dar “Enter”. Só para garantir que é desse button com som pom. Vou recarregar para tirar o onclick.
+
+[02:43] E da mesma forma que conseguimos acessar com querySelector, o elemento da tag áudio através do ponto. No “main.js” eu posso tirar o ponto vírgula e continuar o código do nosso querySelector(‘. tecla_pom’). usando o ponto.
+
+[03:08] O ponto vai entrar para dentro daquele elemento que está sendo buscado no querySelector e vai trazer todas propriedades e funcionalidades que são possíveis ser consultadas ou executadas dentro daquele elemento. Então com um ponto o próprio Visual Studio Code abriu uma janelinha de coisas que são possíveis fazer.
+
+[03:30] E o que queremos aqui agora é acessar o atributo onclick desse elemento, que sabemos que existe porque está lá no HTML, se podemos usar ele no HTML, também podemos usar ele aqui no JavaScript. Então eu vou escrever onclick. Escrevendo onclick eu vou ter acesso a esse atributo e como ele é um atributo, para eu passar e definir um valor para ele, eu uso o sinal de atribuição, o mesmo do HTML, que é o sinal de igual =.
+
+[04:06] E esse sinal vai poder atribuir tudo que vem para o lado direito aquilo, nesta propriedade/atributo o que está do lado esquerdo do sinal. Portanto queremos que quando o onclick deste elemento da tecla pom seja executado, queremos que chame a função tocaSomPom();.
+
+[04:33] Vamos salvar e ver se dá certo. Vou recarregar na minha página e eu tenho um problema. O problema do Play, que o usuário não interagiu com a página antes, e já vimos esse problema.
+
+[04:48] Esse problema já havíamos corrigido, porém voltamos a tê-lo por culpa nossa mesmo. O que acontece no JavaScript? Quando atribuímos uma função para um elemento e, na verdade, quando escrevemos o nome da função e abrimos e fechamos parênteses imediatamente, não estamos guardando essa função dentro do atributo onclick, isso é uma peculiaridade do arquivo JavaScript. Já estamos dizendo para o navegador passar nessa parte e executar essa função imediatamente.
+
+[05:31] Portanto, se dentro do arquivo “.js” queremos guardar uma função em um atributo onclick, precisamos retirar esse parênteses, porque só assim se ele vai guardar dentro do onclick a referência, esse nome da função e não vai necessariamente executá-la no mesmo momento em que ela é guardada. Tem um pouco a ver com a ordem de execução do código JavaScript.
+
+[06:02] Então eu vou meu navegador, vou recarregar e vou ver que esse problema deixa de acontecer, porque agora não estamos chamando a função tocaSomPom, que toca imediatamente o play da tag áudio. Estamos realmente guardamos a função tocaSomPom dentro onclick do botão pom. Então se eu apertar o pom vai executar o som.
+
+[06:31] Vamos ver no Firefox se tem algum problema. Recarreguei o Firefox, vou apertar o botão e o som tocou novamente. Agora para nossa próxima aula vamos aprender como reproduzir esse som de forma automática para todos os botões do nosso teclado, porque já conseguimos fazer funcionar para uma, mas como fazemos automaticamente para todos os nossos botões? Lembrem-se, imagine se tivéssemos um piano com 88 teclas? Até lá.

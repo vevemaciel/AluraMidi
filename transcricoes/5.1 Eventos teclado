@@ -1,0 +1,66 @@
+ao clicar conm teclado no alura midi nao fica vermelho como no mouse, entao tem buscar a classe no css
+.tecla.ativa,
+.tecla:active 
+
+
+    e realizar a funcao abaixo, porem dessa forma fixa em um so item
+    tecla.onkeydown = function(){
+        tecla.classList.add('ativa') // se deixar ate aqui as teclas vao sendo apertada em      sequecia e ficando presas no vermelho
+        tecla.onclick
+    }
+
+
+
+
+Transcrição
+[00:00] Bom, agora o nosso Midi está quase pronto, quer dizer ele já está pronto, ele já está funcionando, se clicarmos com o mouse nas teclas já vamos escutar o som de todos os instrumentos.
+
+[00:15] Vou clicar no psh. Então o que mais falta para nossa aplicação Midi, o Alura Midi ficar sensacional? Bom, como usamos a tag < button> para cada botão do Alura Midi, o < button> já tem uma navegação via teclado por padrão, é um funcionamento padrão da tag < button>, então se eu pressionar a tecla “Tab” do meu teclado do computador, veja que uma luzinha amarela, que já foi adicionada pelo CSS, vai aparecer mostrando qual é o foco da navegação de tab da nossa aplicação.
+
+[01:03] Então se eu der “Tab” ele vai selecionando qual botão está em foco. E se eu pressionar a tecla “Enter” ou a barra de espaço essas duas teclas vão reproduzir o som ou reproduzir aquilo que foi programado para o nosso evento de clique do mouse. Então vou apertar agora com a tecla “Enter” e com a barra de espaço.
+
+[01:37] Vocês já devem ter percebido uma coisa que aconteceu de estranho. Quando eu apertei o “Enter”, vou apertar de novo agora em uma tecla pouco menos barulhenta, na psh, “Enter”. Reproduziu o som e o fundo do botão não ficou vermelho, não deu aquela característica, aquela impressão que o usuário pressionou o botão visualmente.
+
+[01:59] Agora vou apertar com a barra de espaço. Veja que com a barra de espaço temos essa impressão de estar sendo pressionado o botão. Eu estou no Chrome, vamos ver no Firefox. Eu vou recarregar, com o “Tab” eu já tenho navegação via teclado funcionando, agora eu vou apertar no “puff” a tecla “Enter”, reproduziu o som e não ficou vermelho o fundo. E a barra de espaço também reproduziu o som e não ficou vermelho o fundo.
+
+[02:30] Se eu clicar com o mouse, fica vermelho o fundo. No Chrome, se eu clicar com o mouse fica vermelho o fundo. Então perceba que a navegação via teclado do Midi está problemática, está inconsistente e precisamos arrumar isso nessa aula.
+
+[02:48] Para começar precisamos dar uma olhada no nosso CSS. Então vou abrir o Visual Studio Code e vou abrir o arquivo “estilo.css”, que tem todos os estilos da nossa aplicação.
+
+[03:02] E na linha 49 eu vou ver que já foi programado os estilos para esse estado active do button, que é quando o usuário está pressionando aquele botão, ele é representado por esse estado, essa pseudoclasse active. Porém também foi destinado uma classe ativa para representar esse mesmo conjunto de estilos e vamos ter que fazer a inserção dessa classe ativa pelo JavaScript nos botões que forem "clicados" nesse teclado do nosso Alura Midi com o “Enter” e com o espaço.
+
+[03:50] Podemos, inclusive, voltando para o navegador, estou com o Chrome aberto, abrir um botão, por exemplo, vou pegar a tecla “Tim” e testar na aba “Elements” adicionando uma classe manualmente dentro do atributo class, vou colocar ativa. Se eu escrever ativa já vai aparecer o botão vermelho e esses são os estilos de quando o botão está sendo pressionado.
+
+[04:17] Agora eu preciso saber como fazer isso com o JavaScript. Vou recarregar só para remover essa classe ativa que eu coloquei e vamos para o console para testar e tentar descobrir como eu faço isso via código.
+
+[04:33] Já sabemos como acessar um elemento que está dentro do nosso teclado do Midi, criamos uma referência listaDeTeclas com todas as teclas. Para acessar um elemento eu uso a anotação de colchetes e o número do índice. Eu vou usar o 2 que vai selecionar o “Tim”, o botão “Tim”. Então se eu dou “Enter”, se eu digito isso já vejo que é realmente referência àquele botão.
+
+[04:58] E também com o ponto conseguimos acessar todos os atributos e funcionalidades para um elemento HTML, e também já conhecemos o atributo classList, que armazena uma lista de todas as classes que estão naquele elemento e vimos que existe a classe tecla e a classe tecla_tim.
+
+[05:18] Porém, é uma lista, precisamos algo nessa lista, adicionar uma nova classe, portanto se eu colocar o ponto depois de classList eu consigo ver também uma série de funcionalidades disponíveis para um classList, então podemos ver que tem muitas coisas aqui, inclusive algumas coisas que já vimos em outros tipos de lista, como por exemplo length, que é o tamanho.
+
+[05:45] E aqui queremos adicionar, portanto existe essa função add, que no português significa “adicionar”, e eu já sei que é uma função porque justamente o f embaixo indicando que aquilo é uma função. Então eu vou usar essa função add, toda função precisa ter parêntesis para ser chamada. E eu vou passar uma string, ou seja, um texto, então eu tenho que abrir aspas, pode ser simples ou duplas, e preciso passar o nome da classe que eu quero adicionar, no nosso caso é ativa. Então ao executar esse código listaDeTeclas[2].classList.add(‘ativa’) e quando der “Enter” a tecla “tim” vai ter que ficar vermelha.
+
+[06:26] Viram? Aconteceu. Agora temos que reproduzir esse código dentro do nosso “main.js” e esse código de adicionar a tecla ativa tem que ser no momento em que eu dou “Enter” com o teclado, que eu pressiono uma tecla do teclado. E diferente do que temos trabalhando aqui, que foi cliques do mouse.
+
+[06:50] Agora eu vou voltar no “main.js” e dentro do nosso for, onde já temos uns eventos, o evento de clique destinado, embaixo eu vou começar adicionar mais um código.
+
+[07:05] Eu vou dar “Enter”, vou chamar a tecla em questão do nosso loop que está sendo acessado pelo for, a nossa lista de elementos e vou agora entrar nessa tecla e ver quais são as outras opções que existem para ela de eventos. Então, por exemplo, existe o evento on, e acontece todos, o on conseguimos acessar vários tipos de evento no Visual Studio Code, ele mostra também, mas nesse caso ele não está me mostrando, mas às vezes ele mostra.
+
+[07:37] O evento que eu quero é um evento de teclado, e o nome desse evento de quando eu aperto e a minha tecla está embaixo. Então o nome dele é onkeydown, key significa “tecla”, então quando a tecla estiver abaixada, tecla.onkeydown.
+
+[07:57] Então agora já sabemos qual é o evento que representa esse momento que uma tecla é apertada no JavaScript e vamos atribuir uma função anônima igual fizemos com o tocaSom no onclick, então depois de onkeydown = function () { e vamos agora dentro colocar aquele código que já testamos no console, que é acessar a tecla em questão, acessar o classList, acessar a função adicionar e colocar a classe ativa.
+
+[08:32] Então eu tenho a tecla em questão, então tecla.classList.add(‘ativa’); vou salvar e vou testar no meu navegador. Vou dar um recarregar e vou começar a navegar via teclado no meu Alura Midi no Chrome. Então vou dar o “Enter”.
+
+[09:03] Ficou vermelho. Vou dar barra de espaço, ficou vermelho. Vou dar “Tab”, também. Puff também. Eu nem estou apertando e nem estão reproduzindo som e está ficando vermelho todas as teclas agora. O que está acontecendo?
+
+[09:23] Então o que está acontecendo é um problema que quando começamos a trabalhar com inserção de classes no JavaScript precisamos prever. Se abrimos a aba “Elements” do nosso console vamos ver que todos os nossos botões estão com a classe ativa que foi inserida via JavaScript.
+
+[09:41] Eu inclusive vou dar mais um “Tab” para vocês verem que o JavaScript vai fazer piscar os elementos e adicionar mais uma classe. Vou dar um “Tab”, vocês vão ver.
+
+[09:57] Piscou de roxo e adicionou a classe ativa no “Tic”. Mais um, clicou, piscou de roxo e isso identifica que o JavaScript está manipulando essa árvore de elementos e os atributos desses elementos, então eles são destacados.
+
+[10:17] Tudo que colocamos no JavaScript não vai "automagicamente" sumir. Então o JavaScript não sabe, ele é uma linguagem de programação que ele só faz aquilo que você diz, e só dissemos para ele adicionar classe, não dissemos qual é o momento de removermos essa classe. Portanto agora vamos ter que descobrir como fazemos para remover uma classe de um elemento com JavaScript.
+
+CONTINUAR LENDO

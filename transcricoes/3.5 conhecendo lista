@@ -1,0 +1,27 @@
+Transcrição
+[00:00] Agora que já sabemos como deixar o nosso código mais legível, criando uma referência constante, que armazena todas as nossas teclas do nosso Alura Midi, nessa referência lista de teclas precisamos entender como eu acesso individualmente um elemento dessa lista.
+
+[00:24] No nosso console do navegador temos disponível a referência a listaDeTeclas que contém todos os nossos elementos. Percebemos também que temo um colchete que representa essa lista. Só que a listaDeTeclas, quando eu coloco o ponto para entrar dentro dela, que nem já fizemos com o document ou com um elemento retornado no querySelector, percebemos que eu não consigo acessar, por exemplo, uma propriedade onclick para colocar nos elementos de dentro.
+
+[01:10] Porque a lógica não é feita dessa maneira, eu não coloco na lista o evento de clicar, mas sim em cada elemento da lista. Portanto, apesar de eu ter conseguido concentrar todos os meus elementos em uma linha de código, eu ainda vou precisar acessá-los individualmente para conseguir em cada um deles atribuir um valor para o onclick, ou seja, uma função que vai reproduzir o determinado som daquela tecla. Portanto, eu não tenho mais a propriedade onclick logo em seguida como teria se fosse para acessar um elemento.
+
+[01:58] Então precisamos saber como eu acesso um elemento que está dentro dessa lista. E para isso usamos essa sintaxe de colchetes que já vimos que é usada para lista. E dentro do colchete vamos passar o número com o índice que o elemento está dentro dessa lista. Então eu vou colocar um número, que por exemplo, eu quero o elemento do índice 0, que é o da tecla pom listaDeTeclas[0].
+
+[02:30] Então perceba que já está destacado na nossa página o elemento que está armazenado no índice 0 dessa lista de teclas. Índice 1 um temos o Clap, 2 temos o Tim, 3 temos o Puff e assim até o número 8, representando todos os elementos da lista. Se colocarmos um número que não existe, vai retornar que está indefinido (undefined).
+
+[03:03] Então se eu quiser voltar a ter o meu onclick no pom, eu preciso acessar este elemento pela lista, mas informando o número do seu índice para conseguir acessá-lo e então acessar o onclick. Lembrando que no node list, quando abrimos, conseguimos verificar o número do índice de cada botão, lembrando que esse índice é organizado pela ordem de declaração do HTML, então foi o primeiro elemento a ser declarado com essa classe foi o nosso botão pom, por isso ele ficou como primeiro elemento da lista com índice zero.
+
+[03:47] É muito comum que as listas dentro da programação comecem com índice zero e vão até um índice de um número total -1. No Firefox eu vou clicar nessa lixeirinha que tem na aba console, que ela limpa o console para mim. E vou acessar novamente a minha lista de teclas e vou pegar aqui os colchetes, vou adicionar o colchete e vou colocar o índice 0 para acessar a tecla pom listaDeTeclas[0].
+
+[04:24] Então se eu fizer isso e der “Enter”, já vai me retornar o elemento com a tecla pom. E então se eu fizer a mesma coisa e colocar o ponto logo em seguida dos colchetes, ou seja, lista de teclas, colchete, 0 dentro do colchete e após os colchetes eu colocar o ponto, eu vou voltar a acessar todas as propriedades funcionalidades de um elemento, porque agora a minha referência para este elemento é através da lista de teclas e eu não preciso mais usar o document. querySelector de um único seletor.
+
+[05:00] E aqui eu consigo fazer o onclick e atribuir ao onclick a nossa função listaDeTeclas[0].onclick = tocaSomPom. Lembrando que eu não posso passar os parênteses, senão temos aquele problema do play, então vamos guardar aqui no onclick a referência àquela função que já declaramos. Então vou dar um “Enter” e vou clicar no botão pom para ver se vai reproduzir o som.
+
+[05:29] Reproduziu. E esse código está só em tempo de execução do nosso navegador, agora que ele já está funcionando eu posso copiá-lo e colocar dentro do meu “main.js”, porque se eu recarregar a minha página eu vou perder essa execução e vai deixar de funcionar o nosso botão pom.
+
+[05:57] Então eu vou fazer novamente no arquivo “main.js” no VS Code, que é listaDeTeclas[0].onclick = tocaSomPom;. Voltando navegador e recarregando nossa página, se eu clicar no botão pom vai reproduzir. Voltando ao código que tínhamos algumas aulas atrás, apenas um botão funciona e as outras não tem mais funcionalidade.
+
+[06:37] E se eu fosse usar essa mesma lógica para colocar o som nos outros botões, eu teria que fazer algo parecido com isso, ou seja, listaDeTeclas[1].onclick e criar uma função tocasSomClap, listaDeTeclas[2].onclick = tocaSomTim e criar essa função. Porém sabemos que se eu criar todas essas funções, o meu código vai ficar enorme, não vai ficar funcional, vai ficar repetitivo, eu vou ter os mesmos problemas que estávamos tendo antes.
+
+[07:12] Então fica de desafio para nossa próxima aula como podemos usar as listas para conseguir realmente automatizar essa funcionalidade, essa tarefa de atribuir ao onclick de cada elemento da minha lista uma função que toca o som do seu respectivo instrumento.
+

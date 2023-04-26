@@ -1,0 +1,52 @@
+Transcrição
+[00:00] Olá. Na aula passada aprendemos como obter todos os botões do teclado do Alura Midi utilizando uma função chamada querySelectorAll, que recebe a classe que todas têm em comum. E o retorno disso armazenamos em uma constante, que é uma referência que vai facilitar o entendimento do nosso código, que criamos e demos o nome de listaDeTeclas. E depois aprendemos como acessar cada elemento individualmente dentro dessa lista utilizando os índices.
+
+[00:38] Agora precisamos saber como acessamos todos de uma vez, na verdade cada item dessa lista de forma automatizada, pois não vai ser viável continuarmos repetindo esse trecho de atribuição a um clique de cada elemento, uma função de uma lista que não sabemos o tamanho. Aqui estamos no escopo pequeno, trabalhando em uma lista de 9 botões, mas imagina se fosse um teclado com 80 botões, com 1000 botões e que precisássemos adicionar alguma função ao onclick delas?
+
+[01:11] Portanto, toda linguagem de programação contém uma estrutura de repetição para trabalhar nesses casos de códigos que precisam ser repetidos muitas vezes até um determinado ponto. E no JavaScript vamos usar, por enquanto, uma estrutura chamada while. Essa estrutura, essa condição While significa em inglês - até vou deixar aqui em cima do código comentado - significa enquanto.
+
+[01:42] Enquanto determinada condição que vai ser informada aqui nos parênteses que escrevemos logo após a palavra while, a declaração while, vamos criar uma condição que vai determinar onde essa repetição deve parar, porque senão ela vai rodar para sempre, vai causar um loop infinito e vai travar o nosso navegador e possivelmente até o computador. Portanto, precisamos ter uma condição que tenha fim.
+
+[02:15] E depois dos parênteses temos as chaves, onde vai ter a rotina dessa repetição, ou seja, o que vai ser executado, guardado e feito a cada loop e que chamamos de laço também, a repetição dessa função. Então dentro das nossas chaves vamos colocar a rotina de acessar um elemento da lista, acessar o onclick deles e colocar uma função dentro desse onclick. Então eu vou passar esse código que já tínhamos, o listaDeTeclas[0].onclick = tocaSomPom para dentro das chaves da while.
+
+[02:57] E agora vamos precisar entender como vamos criar a condição do while. Ele espera receber uma condição que seja verdadeira ou falsa, ou seja, algo que o JavaScript vai conseguir verificar. No nosso console do navegador, vamos voltar lá, vamos abrir o DevTools e a aba console.
+
+[03:22] Conseguimos testar um pouco esses valores que são verdadeiros e falsos, representados pela palavra true no inglês significa verdadeiro, este tipo de valor existe em várias linguagens de programação, e também tem o false de falso. Precisamos ter um true ou false e precisamos comparar as condições para passarmos no while.
+
+[03:50] Então o que temos? Temos o tamanho da nossa lista, que é de nove elementos e temos repetições. Então podemos contar essas repetições e enquanto essas repetições não atingirem o tamanho da nossa lista, elas vão tendo que ser incrementadas, ter o seu valor contado.
+
+[04:12] Então por exemplo, podemos utilizar aquele operador matemático que aprendemos, que é o de maior e de menor para comparar esses dois números, que é o número da repetição atual do while com o tamanho da lista. Então por exemplo, na primeira repetição, que seria a repetição 0, temos o número zero e podemos comparar com o tamanho da lista, que é o tamanho de nove elementos. Então enquanto zero for menor, o sinal de menor, que 9, true.
+
+[04:45] Então é fácil, ele vai comparar: "0 é menor que 9?" True. Depois na próxima repetição: "um é menor que nove?" True. E vai repetindo. E sempre vamos ter do lado direito um número que vai condicionar a situação de falso. Então: "2 menor que 9?", true, até chegar em: "9 é menor que 9?", vai dar falso. Então precisamos ter do lado esquerdo do nosso operador algo que sempre conte as repetições e compare com o número total da nossa lista.
+
+[05:20] Então vamos precisar criar um contador. E para isso precisamos criar uma referência variável, que vai se chamar contador. No JavaScript, para criarmos uma referência variável, escrevemos a palavra let, que define uma determinada variável, algo que vai receber sempre um valor novo. No nosso caso vai ser o contador, que vai começar com 0, let contador = 0;
+
+[05:52] Então aqui dentro da condição do while eu vou ter o contador e vou compará-lo com 9, while (contador < 9). Só muito cuidado nesse ponto do código porque se você salvar e abrir em um navegador, vai dar loop infinito, porque o nosso contador ainda vale 0. Então lembre-se: 0 comparado (é menor que) 9, true, então aqui vai bugar o seu navegador e até seu computador. Então não salvem e não recarreguem.
+
+[06:24] Agora precisamos saber como mudamos o valor do contador a cada repetição do nosso while. Então primeiro ele vai valer zero, vai comparar aqui com nove e vai dar true e vai entrar no contador. Então como eu vou mudar o valor desse contador? Como dentro do while eu posso fazer qualquer coisa, eu posso inclusive mudar o valor de contador, porque ele é uma variável, é uma referência variável, ele permite o chamarmos de novo embaixo, contador e vai receber, por exemplo, o número um.
+
+[07:02] Só que se eu colocar um, quando ele passar de novo aqui, fazer a segunda repetição vai valer 1, vai ser menor que 9, verdade e depois vai valer 1 de novo, ou seja, vai ser de novo um loop infinito, sempre verdade. Então, na verdade temos que ter contador para receber algum valor algum mais 1, só que esse algum valor vai ter que ser o valor antigo do contador, então pode ser ele mesmo, contador = contador+1;.
+
+[07:40] Como assim? Vamos pensar. Então aqui na primeira repetição o contador vai valer 0, 0 é menor que 9? Verdade. Então 0 + 1 vai ser 1, então ele primeiro faz essa conta, ele sempre vai processar essa conta primeiro, como se tivesse entre parênteses como eu coloquei, e depois ele vai fazer 0 + 1 = 1, então vou guardar 1. Então volta a retornar. Contador vai ser 1, 1 é menor que 9? É. Então agora o contador vai valer um e vai somar com mais 1, ou seja, vai ser 2 e vai guardar o novo valor 2. E assim por diante.
+
+[08:30] Mas como eu sei que isso vai funcionar? Como eu vejo esse valor do contador sendo incrementado e modificado ao decorrer ou durante a execução desse while. Podemos usar agora uma funcionalidade que nos ajuda a entendermos o nosso código em alguns momentos, principalmente dentro de funções que não conseguimos acessar no console, mas de dentro do JavaScript conseguimos acessar o console atravessar da referência dele, que se chama console.
+
+[09:04] Então dentro do JavaScript existe uma palavra reservada chamada console, que é o console do DevTools. E entrando no console temos aqui uma função chamada log, que consegue mandar mensagens lá para o nosso console do navegador, de quem for abrir essa página. Então eu posso colocar aqui o nome do nosso contador e ele vai imprimir o contador várias vezes, quer dizer, até essa condição ser falsa console.log(contador). Agora sim eu posso salvar, porque temos uma comparação que pode sim se tornar falsa.
+
+[09:46] Então eu vou salvar e vou entrar no meu navegador e vou recarregar. Olha só 123456789. Já apareceu aqui o nosso contador, foi impresso pelo “main.js” linha 16, se entramos na nossa linha 16, vai ver que está o console.log. Então nós que criamos esse contador, esses números. E se tocarmos aqui nas teclas, a pom tocou, clap, tim, splash, toim, nenhuma delas ainda tocou, porque falta um pequeno detalhe no nosso código.
+
+[10:26] Onde eu tenho o índice de cada elemento, também não posso ser sempre 0 nas nove vezes, eu preciso que seja uma vez o número 0, outra vez o número 1, depois o 2, depois o 3, depois o 4, depois o 5, ou seja, quem é que tem esse número 1234567... até a condição ser falsa? O próprio contador.
+
+[10:49] Então podemos, no lugar de 0 escrever a referência contador, que vai guardar um número variável, um número que uma hora vai ter um valor e outra hora vai armazenar um outro valor, um outro número. Então vamos salvar, vou recarregar a minha página do navegador e vou agora apertar a tecla clap.
+
+[11:17] O Clap deu pom, o tim deu pom, todos estão tocando pom. Claro, porque estamos com a função tocaSomPom para todos os nossos botões, as nossas teclas. Então precisamos, para as próximas aulas, descobrir como fazemos uma função mais genérica, que consiga descobrir qual é o som da tecla que estamos clicando.
+
+[11:46] E só mais um detalhe aqui no nosso código antes de encerrarmos esse vídeo. É sobre a nossa condição que compara o contador com o número 9. A nossa lista, sim, sabemos que tem 9 elementos, mas será que sempre vamos saber quantos elementos tem em uma lista? Nem sempre. Como falamos, de repente estamos trabalhando com um teclado de 100 teclas, de 1000 teclas, enfim. Pode ser que seja um teclado dinâmico, pode ser outro tipo de funcionalidade, não necessariamente musical.
+
+[12:20] Então podemos acessar o console do navegador e acessar a listaDeTeclas, e podemos ver que a listaDeTeclas, quando a abrimos, além de conferir os índices, podemos ver que existe uma propriedade/atributo chamado length. Length em inglês significa tamanho, o comprimento dessa lista que guarda o número 9.
+
+[12:43] Então ao invés de usarmos o número 9 dentro do while, vamos usar a listaDeTeclas e o atributo length, que então esse atributo vai guardar o número 9. while (contador < listaDeTeclas.length).
+
+[12:56] Então veja que estamos fazendo uma comparação entre duas referências que armazenam números nelas. Dessa forma conseguimos ter mais ideia e o nosso código consegue ter um pouco mais de legibilidade, apesar de ele ficar um pouco maior em termos de palavras, ao invés de comparar números, que nem sempre sabemos o significado dos números dentro do nosso código. Dessa forma fica mais dinâmico o nosso código.
+
+[13:30] Enfim, vejo você no próximo vídeo para melhorarmos essa função que toca o som dos instrumentos musicais.

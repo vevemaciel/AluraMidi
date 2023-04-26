@@ -1,0 +1,20 @@
+tecla.onkeyup=function (){
+        tecla.classList.remove('')
+    }
+
+Transcrição
+[00:00] De novo vamos voltar no console e vamos fazer o mesmo exercício, vamos acessar a listaDeTeclas, vou pegar um índice qualquer, vou pegar o índice 4, que vai pegar bem a tecla “splash” no meio, vou acessar o classList dela e vou usar o ponto depois do classList com todas as opções que eu tenho e vou observar que eu tenho uma função chamada remove.
+
+[00:24] Então como estou acessando classList, esse remove só poderia significar remover uma classe dessa lista de classes, então vou abrir e fechar parênteses, vou passar entre aspas o nome da classe que eu quero tirar, lembrando que como já estávamos trabalhando com classes, não há necessidade de voltar o ponto no início, pois já são classes, não estamos trabalhando com seletores e sim com classes.
+
+[00:52] Então eu vou escrever o nome da classe que eu quero remover ativa listaDeTeclas[4].classList.remove(‘ativa’) e quando eu der “Enter” o “Splash” tem que voltar a ser branco.
+
+[01:03] Pronto, funcionou. Agora a mesma lógica que fizemos para adicionar, vamos ter que fazer para remover. Então qual é o momento que fazemos aqui que identificamos na ação do teclado que eu preciso remover essa classe? E podemos usar um outro evento do teclado, que é quando o usuário solta a tecla.
+
+[01:27] Então eu vou lá no meu “main.js” e vou criar um novo evento, com uma nova função. Então tecla.onkeyup, que é quando o dedo do usuário está no alto, solta aquela tecla do teclado. Vou passar uma função function, abre e fecha parênteses, uma função anônima, abre e fecha parênteses, abre e fecha chaves e vamos usar o tecla.classList.remove(‘ativa’);. Vou salvar, vou recarregar o meu navegador e vamos ver se vai funcionar.
+
+[02:17] Então vou apertar com a barra de espaço o “pom” vocês vão ver que reproduziu, se eu manter pressionada ele vai manter vermelho e se eu soltar ele vai reproduzir o pom. Mas agora temos um problema. Se eu continuar usando o “Tab”, ele vai continuar pintando todos de vermelho.
+
+[02:41] Então temos mais um problema para resolver. O desafio que temos aqui agora na nossa aula é que a nossa lógica de a cada tecla que é pressionada e removida está sendo válida para qualquer tecla do nosso teclado. Então se eu apertar a tecla “H”, se eu apertar a tecla “G”, se eu apertar a tela “J”, não reproduz o som, assim como a tecla “tab” não reproduz o som porque não é o comportamento padrão dos buttons fazer a mesma coisa que o clique, como o “Enter” e o espaço faz.
+
+[03:13] Porém, como eu abri as opções, qualquer tecla que for pressionada coloca a tecla ativa, estamos com a nossa lógico muito ampla, precisamos limitar, precisamos dizer quando aperta uma tecla, mas essa tecla tem que ser “Enter” ou barra de espaço, aí sim você coloca a classe ativa. Então precisamos saber como vamos fazer isso e espero você no próximo vídeo.

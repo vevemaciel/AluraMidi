@@ -1,0 +1,77 @@
+function tocaSom(idElementoAudio){
+    document.querySelector(idElementoAudio).play();
+}
+
+const listaDeTeclas= document.querySelectorAll('.tecla');
+
+let contador= 0;
+
+   //enquanto
+while (contador < listaDeTeclas.length){
+    const tecla =listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`;
+    
+    tecla.onclick= function (){
+        tocaSom(idAudio)
+    }
+    contador= contador +1;
+
+}
+
+Transcrição
+[00:00] Até o momento descobrimos como fazer uma função receber um parâmetro dinamicamente para que executasse a sua função, a sua funcionalidade de forma dinâmica.
+
+[00:12] No nosso caso a função tocaSom está recebendo o ID de um elemento que vai ser buscado pelo querySelector e então reproduzido o seu som através da função play. Essa função tocaSom está sendo utilizada dentro do nosso while, que acessa cada tecla do nosso Alura Midi, utilizando a variável que criamos para contar as repetições e então acessar o índice, elas vão conter um índice que vai acessar um determinado elemento da lista de teclas.
+
+[00:48] E portanto, a cada elemento vamos acessar seu onclick e atribuir uma função anônima e aí sim chamará função tocaSom. Porém, os parâmetros que estamos passando para a função tocaSom ainda está fixo, porque escrevemos o texto fixamente, porém sabemos que essa última parte do nosso parâmetro, a parte do nome do instrumento, do nome do som, deve ser dinâmica.
+
+[01:18] Se entrarmos no nosso “index.html” e olharmos as tags áudio, vamos ver que existe um padrão para os IDs, todos começam com som_tecla_pom, fazendo só a última parte ser diferente a cada elemento áudio, cada tag áudio.
+
+[01:36] E nos nossos botões podemos perceber que temos uma parte dessa informação, temos além da classe tecla, também cada botão tem uma classe chamada tecla e o nome do som do instrumento, pom, clap, tim. Então dentro do while não temos acesso a tag áudio, porém temos acesso a um elemento button e dentro desse elemento button, através da sua classe, podemos acessar qual é o instrumento em questão que está sendo clicado.
+
+[02:10] Então é a partir dessas classes que estão dentro dos elementos button que vamos conseguir montar dinamicamente esse texto, pois texto é um tipo de dado que é dinâmico, podemos escrever e inventar do jeito que precisarmos. Então vamos usar o console do navegador, estou no Chrome, vou limpar o console e vou acessar a lista de teclas e um índice qualquer, vou acessar o índice zero, por exemplo, que é o da tecla pom.
+
+[02:42] Eu vejo que ele retorna o botão se eu der “Enter”, então eu vou acessar um atributo, que quando colocamos o ponto, lista de teclas colchete zero ponto, depois dos colchetes, conseguimos entrar dentro desse elemento, ver todos os atributos e funcionalidades que estão disponíveis para esse elemento como já temos feito.
+
+[03:02] E um desses atributos, assim como o onclick é um atributo, o class também é um atributo e ele é disponível da forma mais organizada pelo listaDeTeclas[0].classList. E pelo próprio nome já sabemos que isso vai nos retornar uma lista que é um tipo de dado que também já estamos aprendendo a utilizar. Se eu dar um “Enter” ele vai me retornar naquela anotação também que já estamos começando a conhecer melhor, que é a de colchetes representando uma lista.
+
+[03:36] E também nas listas temos o índice. No nosso caso, em uma lista de classes, temos o índice, o zero, o valor armazenado é a classe, a classe simplesmente é um texto, portanto está aqui entre aspas, representando o que é um texto, no índice 1 também temos a segunda classe, nos totalizando uma lista de 2 itens. Lembrando que os índices sempre começam com zero.
+
+[04:05] Portanto, se eu quiser acessar a segunda classe dessa lista, eu tenho que usar a anotação de colchetes com índice 1. Dessa forma listaDeTeclas[0].classList[1] e assim vou conseguir acessar a segunda classe da minha lista de classes.
+
+[04:33] Com esse dado, agora já sabemos como obtê-lo, vamos trazê-lo dentro do nosso while. Então vou voltar no “main.js” e vou ter a nossa lista de teclas. Agora que usamos o contador que está armazenando o valor do nosso índice, então listaDeTeclas[contador].classList[1], que sabemos que vai retornar a lista que tem aquela instrução, aquele pedaço de texto que se chama tecla_pom, enfim, a tecla que estiver aqui no momento.
+
+[05:07] E podemos inclusive utilizar o console.log para ver se realmente essa informação que colocamos está correta. E para facilitar o entendimento do nosso código eu vou armazena-la dentro de uma referência constante para ficar mais fácil de entender o que esse trecho de código faz.
+
+[05:28] Então eu vou declarar uma constante que vai ter, por exemplo, o instrumento. Instrumento é o nome da minha constante e vai armazenar essa instrução que vai obter o nome da segunda classe deste elemento. Então eu vou dar um console.log(instrumento) nessa referência instrumento, que é uma constante.
+
+[05:54] Então vou recarregar no navegador a minha página e já vou ver que no console está dando o console tanto do nosso instrumento como também do valor do contador que mantivemos. Então na repetição 1 tem a tecla_pom, na repetição 2 eu tenho a tecla_clap, na repetição 3 Tim, na repetição 4 Puff e assim por diante, vai até a repetição 9, que encerra o nosso while.
+
+[06:24] Voltando no “main.js”, podemos perceber que tem uma repetição de código no nosso while, que é a lista de teclas contador. Estamos usando tanto para acessar o classList, tanto para fazer o onclick. Essa repetição de código não é legal e podemos também atribuir isso para uma constante que tenha o nome mais significativo, afinal eu vou ter listaDeTeclas[contador]?
+
+[06:55] O que isso tem por baixo dos panos? Então quando eu acesso um elemento de uma lista de teclas eu tenho uma tecla, então eu posso criar uma constante, uma referência tecla, que vai conter o elemento daquele momento da lista de teclas. Então passa o nosso índice que está dentro do contador e eu já posso substituir esse código listaDeTelas[contador] do classList por tecla e do onclick também por tecla.
+
+[07:32] Já deixando nosso código um pouco mais limpo. E agora que eu já tenho a tecla, tenho o instrumento, falta só termos o ID correto, essa parte de #som pois dentro da referência instrumento temos tecla_pom.
+
+[07:56] Como que seria isso? Se eu tivesse uma string seria algo como um pseudocódigo dentro de um comentário. Seria algo como ‘#som e o restante do código eu já tenho, que está dentro desse instrumento. Então vou representar como chaves essa parte que é variável, que é dinâmica, dentro da nossa string.
+
+[08:29] É possível fazer isso com JavaScript e é muito simples. Eu vou criar uma nova referência constante que vai guardar o ID da tag áudio. Então vou chamá-la de idAudio. E ela vai receber essa nossa string que vai ter um pedaço dinâmico dentro dela. Só que para eu fazer isso eu não posso utilizar a string comum, que é com aspas simples ou aspas duplas, eu vou ter que substituir pela crase. E a crase é uma outra forma de criar strings (textos) dentro dos JavaScript.
+
+[09:09] Então vou começar a minha string com crase e vou finalizar com crase. Veja que funciona, fica com o mesmo destaque de cor, amarelinho, sinalizando que é uma string.
+
+[09:23] E agora tudo que é variável dentro da minha string eu preciso envolver entre chaves, porém iniciando $ antes da abertura das chaves. Veja que até a cor do highlight do VS Code já muda, sinalizando que é um pedaço de código.
+
+[09:43] Esse ${} faz uma abertura para o código de JavaScript de dentro da string, eu posso acessar variáveis, métodos fazer contas aqui dentro, é incrível. E o nome desse recurso que utilizamos da linguagem JavaScript é template string. Eu até vou escrever para vocês conhecerem.
+
+[10:05] E agora eu vou fazer o console.log em vez do instrumento, eu vou fazer o console.log da nossa referência idAudio para vermos como ficou. Então vou salvar no “main.js”, vou recarregar o navegador e já temos os IDs dinamicamente, som_tecla_pom, som_tecla_clap.
+
+[10:31] Vamos olhar no Firefox, isso é muito importante, sempre verificar nos navegadores se está com algum problema. E vemos que está tudo certinho no Firefox também.
+
+[10:41] Então agora dentro da nossa função, onde tem tocaSom, eu vou tirar esse parâmetro fixo que está dentro de função, da nossa função anônima, da tocaSom, e vou começar a passar a nossa idAudio, que é o parâmetro, a nossa string que está sendo montada a cada iteração do while.
+
+[11:10] Vou salvar, vou recarregar, estou no Firefox e vou executar os sons de cada um dos nossos instrumentos. Vou clicar no Pom, saiu. E no clap? Saiu. No tim? Saiu. No splash, no tic, no pom, no toim, no puff, no psh, todos deram certo! Então finalmente no Alura Midi está funcional, com código super inteligente, super reaproveitado, podemos tirar esses console.log para não ficar poluindo nosso console da aplicação.
+
+[11:53] Na verdade eu posso tanto apagar, mas se vocês quiserem manter para se lembrar, podemos colocar com barra barra, comentar esse código, salvar.
+
+[12:03] Vou recarregar, já não vai ter mais esses consoles. Ótimo. E basicamente as principais funcionalidades do Alura Midi está implementada e a partir dos próximos vídeos vamos trabalhar ainda mais nas melhorias desse código, em como deixá-lo ainda mais profissional, conhecer mais recursos da linguagem e principalmente, em saber como começamos também a trabalhar na navegação via teclado.

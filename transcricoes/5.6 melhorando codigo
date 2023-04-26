@@ -1,0 +1,46 @@
+function tocaSom(seletorAudio){
+    const elemento = document.querySelector(seletorAudio);
+
+    if (elemento != null && elemento.localName === 'audio' ) {
+        elemento.play();
+    }
+    
+    else  {
+        // alert ('Elemento nao encontrado')
+        console.log('Elemento nao encontrado ou seletor invalido');
+    }
+    
+}
+
+
+Transcrição
+[00:00] Vamos primeiro só dar uma melhorada no nosso código. Ficou um monte de if. Podemos reduzir esse if em um único if, usando uma coisa muito parecida que fizemos nossos eventos de teclado, que juntamos dois ifs em um usando o “ou”. No nosso caso podemos fazer a mesma lógica, só que ao invés de usar “ou”, porque o elemento não pode estar nulo e** tem que ser igual ao áudio, vamos usar o operador lógico *and, que significa *“e”, que soma “e” em português;
+
+[00:36] Se o elemento não for nulo e aí ele é representado por dois E comercial &&, esse é o símbolo do and, vou até escrever and para vocês. E se o elemento não for nulo e elemento.localName === ‘audio’), então eu vou dar play. Então eu posso reduzir tudo isso em um único if.
+
+[01:05] E também percebemos que esse if é a negação desse outro if, ou seja, se o elemento for nulo, então eu faço isso. Ou seja, se em algum momento o elemento não bater nisso, se o elemento for falso, eu vou ter uma outra condição falsa e eu posso no if usar uma estrutura conjunta que é o else.
+
+[01:34] O else significa “senão” e ele precisa ser invocado imediatamente depois de um if, que vai ser a função que vai ser executada caso esta condição que seja falsa. E tão se o elemento não for nulo e o elemento for diferente do áudio, então eu vou cair no else.
+
+[02:01] Então eu posso passar essa mensagem aqui de elemento não encontrado para dentro do else desse if, posso tirar esse == nulo, porque o else vai substituir dentro da nossa lógica. E agora essa mensagem vai cair para os dois erros, tanto para o button quanto para o piano.
+
+if (elemento != null && elemento.localName === 'audio') {
+    elemento.play()
+}
+else {
+    console.log('Elemento não encontrado');
+}COPIAR CÓDIGO
+[02:21] Vamos testar? Então eu vou voltar no meu navegador, vou recarregar e vou testar o piano, “Elemento não encontrado”. E o button? Ele está dando a mesma mensagem para o button, então podemos colocar uma mensagem um pouco mais detalhada, “elemento ou seletor inválido”. “Elemento não encontrado” ou “Seletor inválido”, por exemplo. console.log('Elemento não encontrado ou seletor inválido');
+
+[02:56] Podemos colocar a mesma mensagem para os dois. Então vou recarregar e vamos tentar agora com piano e com button. Temos a mesma mensagem, uma mensagem mais significativa. Então agora caso alguém use essa função tocaSom de maneira inapropriada, ela vai ter os detalhes do porquê não está funcionando a nossa função.
+
+[03:23] Então vimos o if, o else e também o operador and e o operador de not equals. Apenas um detalhe "muito mágico", o JavaScript já é inteligente o suficiente para quando o valor for nulo ou for vazio dentro de uma referência.
+
+[03:46] Então no caso, se isso (elemento) for nulo eu não preciso compará-lo com nulo, eu posso simplesmente retirar isso e ele vai fazer, o if já é inteligente para fazer essa verificação, ele pensa if elemento, se elemento existe, ou seja, tem alguma coisa que seja um valor que não seja nulo, que não seja vazio, que testou vazio ou zero ou false ou null ou undefined, se for diferente de tudo isso, então vai cair como uma condição verdadeira. Então eu posso deixar nossa lógica um pouco mais sucinta. E para essa aula é isso.
+
+if (elemento && elemento.localName === 'audio') {
+    elemento.play()
+}
+else {
+    console.log('Elemento não encontrado ou seletor inválido');
+}COPIAR CÓDIGO

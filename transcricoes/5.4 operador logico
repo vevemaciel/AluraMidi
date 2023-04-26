@@ -1,0 +1,32 @@
+Transcrição
+[00:00] Anteriormente criamos uma condição em nosso código com if para adicionar a classe ativa em um botão em um botão do nosso Alura Midi que fora acionado por uma tecla do nosso teclado do computador. Essa tecla que escolhemos por enquanto foi a tecla Space. Agora precisamos repetir ou replicar esta mesma lógica para a tecla Enter.
+
+[00:31] A primeira coisa que vamos fazer é usar essa mesma estrutura que já conhecemos, a estrutura condicional if, if () {}. sempre recomendo você seguir essa ordem de escrita do if para não esquecer de nenhum detalhe dele. E dentro da condição, dos parênteses, que tem a condição do if vamos fazer da mesma forma que fizemos para o Space, if(evento.code ===’’) e vimos na aula anterior, que para o “Enter” era a palavra, “Enter” sempre começando com a letra maiúscula.
+
+[01:15] Lembrando que o JavaScript é sensitivo a letras maiúsculas e minúsculas. Entao if (evento.code === ‘Enter’){ vamos colocar a classe ativa. Então tecla.classList.add(‘ativa’);. Vou salvar, vou voltar no meu navegador, estou no Firefox, vou recarregar o código e vamos ver agora se vai acionar a nossa classe ativa quando apertar o “Enter” do meu teclado do meu computador. Então tem que ficar vermelho o fundo.
+
+[01:58] Inclusive eu posso depois olhar e verificar a inserção dessa classe usando o inspecionador. Vamos ver então se vai acionar o “pom”, não só o som, mas também como o fundo vermelho. Deu certo e vou colocar a barra de espaço.
+
+[02:17] Deu certo também. Vocês devem ter notado que console.log true e *false no console. Vamos ver de onde está saindo esse console.log. É da linha 20, se olharmos no navegador está falando a linha 20 do “main.js” do console do navegador, voltamos no “main.js”, no Visual Studio Code tem esse console só comparando se é igual “Space”.
+
+[02:41] Então vamos retirar esse console.log para ele não nos confundir, salvar e depois vou carregar o navegador, e vamos olhar também essa modificação dentro da nossa aba inspector do DevTools, do navegador. Então se eu olhar todas as minhas teclas button, quando eu pressionar com o teclado as teclas corretas, que são o “Enter” ou o espaço, vai ter que inserir a classe ativa.
+
+[03:11] E assim que eu soltar vai ter que remover também. Então “Tab” não está acontecendo nada, se eu aperto teclas do teclado que não são “Enter”, por exemplo, do alfabeto, números, não está acontecendo nada. Agora vou apertar o “Enter”. Virão? Eu apertei no “tim”. Então vou volta no foco, espaço, deu certo.
+
+[03:40] Mas voltando no Visual Studio Code, percebemos que ao fazer e resolver essa situação de programar essas duas teclas temos código repetitivo. Então duas vezes o mesmo código e isso não é legal. Uma forma de resolvermos isso é conseguir usar um operador lógico do JavaScript que vai conseguir fazer uma condição de verdadeiro ou falso um pouco mais abrangente para o nosso if.
+
+[04:15] Porque a ideia seria a seguinte: Se o código do teclado, se a tecla que foi clicada for igual a "Space" ou igual a “Enter”, então adicione essa classe ativa. Então basicamente o que precisamos é manter essa condição de “Enter” e não repetimos o if e não repetimos ativa.
+
+[04:45] E essa condição do Ou podemos colocar dentro do primeiro if utilizando algo que representa essa condição lógica o ou, esse que é conhecido como um operador lógico no JavaScript. Por exemplo, se fosse or, que em português significa “ou”. Então seria se a tecla do teclado for "Space" ou se a tecla do teclado for “Enter”, então adicione a classe ativa. if (evento.code === 'Space' or evento.code === 'Enter')
+
+[05:20] Só que no JavaScript or é uma palavra que não existe, não está prevista, então temos um símbolo que representa esse operador de alternância, que é o pipe pipe , duas vezes esse carácter |, que é a barra reta. E o que isso vai acontecer? Qual é a lógica que vai rolar aqui? if (evento.code === 'Space' || evento.code === 'Enter')
+
+[05:42] Esse operador vai indicar se for a tecla de espaço verdadeira ou se a tecla de “Enter” for verdadeira, então vai ser a condição suficiente para dar verdade, vai ser o suficiente para entrar dentro desse if.
+
+[05:58] Então nesse caso precisamos ter apenas uma verdade, uma condição verdadeira para poder entrar. Então quando eu apertar a tecla de "Space", eu não estarei apertando a tecla de “Enter” junto, então sempre um desses lados vai estar falso.
+
+[06:14] Mas o operador ou vai poder permitir que essa condição seja verdade e ativar para as duas teclas. Vamos ver, vamos recarregar, agora vou dar o foco, vou apertar aqui no puff, “Enter”.
+
+[06:32] Deu certo. E no espaço também deu certo. Agora que já aprendemos a criar estruturas condicionais podemos ainda explorar mais as funcionalidades do nosso código e deixá-lo mais seguro, conhecendo ainda mais possibilidades do JavaScript. Vejo você lá.
+
+CONTINUAR LENDO

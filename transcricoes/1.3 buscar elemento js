@@ -1,0 +1,56 @@
+Transcrição
+[00:00] Agora precisamos descobrir como vamos colocar um botão do HTML dentro do JavaScript. É muito parecido com o que já fizemos no CSS.
+
+[00:13] Vamos utilizar no navegador aquela ferramenta que auxilia os desenvolvedores para nos ajudar a fazer essa tarefa, que é o DevTools. Então clica com o botão direito na minha página e posso usar a opção de Inspect, no meu está em inglês, no de vocês pode ser “inspecionar”, “inspecionador de elementos”, “inspect element”, depende bastante de navegador para navegador, então eu vou clicar nessa aba e vai abrir para mim o DevTools.
+
+[00:48] Pode ser que abra para vocês embaixo, eu gosto muito de trabalhar com ele no lado direito, então clico nesses três pontinhos e coloco ele pra direita. E também eu vou aumentar a letra para vocês poderem enxergar um pouquinho melhor.
+
+[01:09] Sempre começamos a trabalhar com esse DevTools, essa ferramenta de desenvolvedores, na aba “Elements”. Essa aba contém todos os nossos elementos HTML do nosso “index.html” e embaixo temos essa aba “Styles”, que tem o CSS de cada elemento, como já vimos também nos cursos de CSS, no dia a dia desenvolvimento front-end, que conseguimos ver o CSS, os estilos das nossas tags.
+
+[01:38] E para conseguimos selecionar e adicionar o estilo em um botão, por exemplo, precisamos criar uma classe como boa prática mesmo do CSS, que é criar uma classe para adicionar os estilos, poderíamos ter estilizado direto a tag pelo nome Button, e também é possível fazer com o ID dela. O correto é sempre usar a classe, o nome da classe ou o nome do elemento.
+
+[02:11] E para o JavaScript não é diferente, precisamos ter um nome para encontrar esse elemento que queremos fazer alguma coisa dentro do JavaScript. E no DevTools vamos utilizar a aba “Console”, que fica do lado da aba “Elements”, que nele vamos poder executar qualquer código JavaScript dentro desse arquivo “index.js”, que está carregado nesse momento. E isso vai nos ajudar a desenvolver, a entender o nosso código.
+
+[02:47] Seguindo essa lógica parecida com CCS, a primeira coisa que precisamos é ter nome do seletor, que pode ser o nome da tag, pode ser o nome da classe, pode ser um ID, enfim, qualquer seletor CSS. Eu vou usar por enquanto o seletor do nome da tag chamado “tecla Pom”. Então se eu escrever aqui ‘tecla_pom’ e dar o “Enter”, vai me retornar ‘tecla_pom’.
+
+[03:19] Eu estou usando o Chrome. Então não teve nenhum retorno, nenhum problema, se tivesse algum com problema nessa escrita que eu teria feito, já saberíamos, porque o console também nos retorna todos os problemas do nosso código. Então ‘tecla_pom’ é um seletor válido para nós.
+
+[03:42] Só que só esse ‘tecla_pom’ é basicamente um texto, é a mesma coisa que eu escrever entre aspas o meu nome, por exemplo, Vanessa ou Alura. É um texto. Eu preciso passar esse nome, esse texto, para alguém, algo que consiga fazer essa busca por esse elemento através desse seletor informado. Então eu vou usar essa funcionalidade de limpar o console, vou clicar nesse botão “Clear console” e vou digitar e apresentar para vocês uma função que é capaz de buscar e trazer para nós o elemento que informamos o seletor desse elemento, que é a função querySelector.
+
+[04:36] Então a função querySelector, com q minúsculo e S maiúsculo, faz uma busca pelo seletor e é exatamente isso que significa o nome dela. Query em inglês, uma das traduções é busca, e selector, seletor, o mesmo seletor de CSS. Como é uma função, lembra como já vimos o alert? Ela tem essa sintaxe padrão. Tem que vir com o parêntese depois e entre parênteses, aspas simples, porque vamos passar um texto para ela e vamos passar o nome do seletor.
+
+[05:14] Como o seletor é um nome, é um texto e eu preciso decidir se é uma classe, se vai ser o nome da tag, se vai ser o ID é igual lá no CSS. Se for o nome da tag, é direto o nome da tag button, se for uma classe ponto e o nome da classe, .tecla_pom, se for um ID, eu vou começar com hashtag #som_tecla_pom, que é o ID de um outro elemento, se abrimos a aba elements vamos ver que por exemplo, é o ID de uma das tags áudio.
+
+[06:02] E então só informei IDs que existem. Então eu vou aqui selecionar o botão, porque é o botão que eu quero acessar, é esse botão da tecla pom, então querySelector(‘.tecla_pom’). E se eu der um “Enter”, eu vou ter o meu primeiro erro no JavaScript.
+
+[06:26] Esse erro significa que querySelector não está definido, é um erro referência. Porque diferente do alert, que é uma funcionalidade que está em um escopo maior, que é a nossa janela, podemos chamar o alert em qualquer lugar do nosso código e ele é uma funcionalidade que está ali disponível para qualquer parte, qualquer momento do nosso código e para qualquer situação.
+
+[06:55] Agora, o querySelector é uma funcionalidade que precisa ter um escopo, eu preciso dizer para o JavaScript aonde que eu quero que seja buscado este elemento, com este seletor. Então eu sempre tenho que executar o querySelector dentro de um outro lugar que precisamos informar, que pode ser uma outra tag ou geralmente usamos dentro do nosso documento HTML. Eu peço para o JavaScript, dentro do documento HTML, buscar o elemento que tem este seletor que é a classe ‘tecla_pom’.
+
+[07:37] Então para fazer isso, o JavaScript tem uma palavra reservada, chamada document. Essa palavra ela representa todo o documento HTML, inclusive acabei de escrever e toda minha página ficou destacada com azul, como se eu tivesse passado o inspecionador de elemento, aquela setinha e tivesse selecionado todo documento HTML.
+
+[08:05] Representa todo esse documento. E agora para eu executar alguma coisa dentro desse documento, eu vou usar um caractere que acessa esse documento, que entra dentro desse documento, dessa palavra, que é o ponto. O ponto é capaz de entrar dentro dessa representação do document e acessar atributos, acessar funcionalidades que são possíveis serem executadas dentro do documento, e uma delas é o querySelector.
+
+[08:44] Então querySelector(‘’) sempre com Q minúsculo S maiúsculo, parênteses, abre e fecha parênteses, dentro dos parênteses abre e fecha aspas simples, então document.querySelector(‘.tecla’) tecla já funcionou. Se eu escrever só tecla, porque todos os meus botões tem duas classes, tem a classe tecla e tem a classe tecla_som.
+
+[09:11] Então a própria classe tecla já funciona, já está até destacando no nosso HTML o elemento correto, embaixo já está dando uma prévia do que esse código que eu escrevi que o HTML vai retornar, então já disse ali que vai ser a tecla pom, ‘tecla_pom’ vai retornar a primeira.
+
+[09:38] Se eu colocar _clap vai retornar a segunda. Então vamos pegar a Pom primeiro, vou dar um “Enter” e com o “Enter” eu confirmo a execução desse código JavaScript que vai trazer para mim a representação, a referência daquele botão. Então esse código acessa o documento HTML, ele busca aquele elemento daquele seletor informado e retorna para mim essa referência desse elemento, esse botão que eu quero trabalhar.
+
+[10:11] E só mais um detalhe, que se eu colocar um que não existe, por exemplo tum, tum não existe, se eu der “Enter” ele vai retornar null, ou seja, nulo, não encontrou.
+
+[10:23] E outro detalhe, se eu escrever queryselector com S minúsculo, vamos ter um erro também, porque ele vai dizer que query selector todo minúsculo não é uma função, não existe, porque o JavaScript é sensível a letras maiúsculas e minúsculas, então temos que ter muita atenção na hora de escrever. Às vezes escrevemos tudo minúsculo ou até um erro de digitação, esquecemos de escrever uma letra da palavra, escrever query seletor e não selector, também vai dar um erro. Então estou tentando fazer o erro aqui para vocês.
+
+[11:06] Vai dar o mesmo problema. Então esse erro é porque aconteceu alguma coisa na hora de digitar, tanto o query selector ou document, por isso sempre utilize o auto complete, ou seja, essas sugestões que tanto o navegador ajuda para digitarmos o código corretamente quanto no Visual Studio Code.
+
+[11:29] Sabendo que esse código está correto, eu vou copiá-lo mesmo se quiser, e colar no nosso “main.js”, posso copiar com o mouse, ou posso, se quiser praticar mais um pouco, digitá-lo aqui no “main.js”. Então voltando no VS Code agora, eu vou apagar aquele alert, eu não preciso mais dele, e vou digitar document.
+
+[11:55] Olha o Visual Studio Code me ajudando a digitar, document.querySelector(‘.tecla_pom’); ele até adivinhou que eu ia usar o querySelector, dou um “Enter” para ele auto completar.
+
+[12:20] Então sabemos que esse código quando for lido pelo JavaScript vai trazer para mim um elemento HTML, no caso ali com aquele seletor, é o nosso botão. Eu vou salvar “main.js”, vou recarregar e nada acontece, nenhum problema, nenhuma letra vermelha no console.
+
+[12:40] O nosso botão Pom ainda não reproduz nada e no Firefox, então eu vou abrir o Firefox. E no Firefox também vou recarregar, vou clicar com o botão direito, vou abrir o DevTools, vou abrir a aba console, vou ver que não tem nenhum erro, vou clicar na tecla Pom, recarregar aqui e vejo que não tem nenhum problema, então estamos corretos.
+
+[13:09] Já temos o acesso agora a esse botão através desse código, porém ainda não fazemos nada com ele, então para nossa próxima aula vamos descobrir como adicionar uma funcionalidade dentro desse botão e reproduzir o som do nosso instrumento musical. Até lá.
+
+CONTINUAR LENDO

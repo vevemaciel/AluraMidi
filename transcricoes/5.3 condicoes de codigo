@@ -1,0 +1,56 @@
+Transcrição
+[00:00] Até o momento conseguimos adicionar a classe ativa utilizando teclas do nosso teclado. Então ao navegar com o teclado no Alura Midi, por exemplo, com o “Tab” e eu apertar o “Enter” do meu teclado conseguimos acionar o som e também acionar o estado de tecla ativa, que é representado por essa cor vermelha e que já estava sendo representado com o clique do mouse pelo comportamento padrão do CSS, que aciona aquele estado “active”.
+
+[00:40] Porém, com o teclado isso não ocorria, portanto foi necessário adicionar via JavaScript a classe ativa para que houvesse a consistência de estilos quando usuário estivesse navegando via teclado e mouse.
+
+[00:58] Então agora, neste momento qualquer tecla do teclado é capaz de adicionar essa classe ativa e vamos precisar agora resolver qual é o momento certo de adicionar a classe ativa, que não é a cada tecla do meu teclado e sim, apenas se for pressionado a tecla “Enter” ou a tecla barra de espaço, que são as que já têm programado para acionar o som nativamente pelo navegador e reproduzir o som dos instrumentos.
+
+[01:39] Para começarmos a solucionar esse problema, vamos voltar no “main.js”, no Visual Studio Code. E dentro do for, onde temos os eventos do teclado, o onkeydown, o onkeyup, no onkeydown, que é quando adicionamos a classe ativa, precisamos acionar esse código tecla.classList.add de acordo com uma dada condição. E qual é a condição? É se a barra de espaço ou a tecla “Enter” do teclado do computador forem pressionadas, e não a qualquer tecla, que é o que está acontecendo aqui.
+
+[02:28] Eu não estou delimitando qual tecla do teclado, estou dizendo para o JavaScript que qualquer tecla que for apertada execute este código que está na função atrelada para o onkeydown. Então no nosso caso temos uma condição para esse trecho de código a ser executado.
+
+[02:53] E no JavaScript, assim como em qualquer linguagem de programação, temos uma estrutura condicional que pode nos ajudar a fazer esse tipo de situação em código, é super trivial, é comum que isso aconteça.
+
+[03:07] Então podemos até escrever em português por enquanto, por exemplo, "se dada a condição que eu vou me informar para o JavaScript entre os parênteses for verdadeira, então se (dada condição for verdadeira) { faça o trecho de código que estará entre as chaves dessa condição".
+
+[03:42] Mas sabemos que o JavaScript é uma linguagem de programação, então o código das estruturas precisa ser em inglês, então esse “se” em inglês é o famoso if, que como eu já comentei, tem em várias linguagens de programação. Então esse código só vai ser executado se a condição que eu informar nos parâmetros for verdadeira. E agora precisamos descobrir como montar essa condição. E um pedaço dela já sabemos, que é se a tecla do teclado for espaço ou for “Enter”, eu quero que isso aconteça.
+
+[04:29] Então vamos ter que de certa forma ter a informação dessa tecla e compará-la com o nome dessa tecla, por exemplo espaço. Vou colocar em português por enquanto, porém logo vamos descobrir qual vai ser o nome correto. Então eu coloco if (‘Espaço’) {. Agora vamos precisar descobrir qual tecla o usuário apertou do teclado dele para conseguir terminar de montar essa condição.
+
+[04:59] No JavaScript temos um recurso que a própria linguagem e o próprio executor ou o navegador que executa o código JavaSript fornece para trabalharmos com os eventos. Então esse recurso está disponível para todas as funções que são diretamente atreladas a um evento. E dentro dessa função, temos o parâmetro dela, é fornecido para ela como primeiro parâmetro os detalhes do evento que foi acionado e podemos dar um nome qualquer a este parâmetro que vai representar o evento que foi acionado.
+
+[05:41] Normalmente você vai encontrar em códigos que você for trabalhar como event, ou apenas como "e", e aqui vamos dar o nome significativo, vamos escolher aqui evento em português, para você saber que esse nome eu escolhi e que dentro desse nome o JavaScript vai fornecer todos os detalhes do evento que foi acionado. tecla.onkeydown = function (evento) { ...
+
+[06:07] E vamos usar aqui aquela função console.log para entendermos o que tem dentro desse evento que foi fornecido pelo JavaScript para conhecermos os eventos que estão acontecendo, os detalhes do evento que está acontecendo ao clicar em uma tecla do Midi, então console.log(evento).
+
+[06:26] Então vou salvar e vou voltar no navegador. Recarreguei o navegador, eu estou no Firefox, vou dar a tecla “Tab” e vou dar de novo a tecla “Tab”, vou pressionar de novo no meu teclado. Perceba que foi imprimido no console os detalhes desse evento do keydown, vou abrir aqui nesse triângulo cinza que expande todos os detalhes desse evento.
+
+[06:57] Podemos ver que tem aqui o objeto desse evento, ou seja, uma série de propriedades com valores que guardam informações sobre esse evento e aqui conseguimos dar uma olhada, eu sei que tem muitos, mas conseguimos ver que tem algumas propriedades que tem informação desse evento, por exemplo, eu pressionei no teclado o “Tab”, então ele me falou que foi através da propriedade code o “Tab”.
+
+[07:26] Também consigo ver que tem outras propriedades que tem essa informação como a key, também tenho o a keyCode, que dá um número para essa tecla que foi pressionada. Então também tem o tipo do evento que foi keydown, tem esse which que também mostra o número, por baixo dos panos também tem números para o nome das teclas, mas é melhor usarmos nomes com significado.
+
+[07:51] Então agora, por exemplo, vou clicar no teclado uma das teclas que queremos usar no Midi. Então eu vou voltar aqui no foco da tela e vou apertar o “Enter”. Vai reproduzir o som. E conseguimos ver que no code tem o nome “Enter”, no key também e vamos testar agora com a tecla de espaço.
+
+[08:25] Também. Então vimos que vai ter o code: "Space", porém, no key a tecla de espaço é representada com aspas e um espaço vazio, o que pode ser um pouco complicado. E isso nos faz tomar a decisão correta de qual dessas propriedades podemos usar para trazer no JavaScript e montar a nossa lógica. Eu gosto muito mais desse code, porque tem um nome escrito da tecla que foi pressionada, ao contrário de ser o que a tecla faz mesmo, que é o que é essa propriedade key mostra, ela adiciona um espaço.
+
+[09:03] Podemos até testar com outras teclas do teclado, por exemplo uma letra do alfabeto, por exemplo G. Vai mostrar code: "KeyG", key ele vai mostrar o G. Então isso para mim é o critério que vou usar de qual dessas propriedades do evento eu vou utilizar. Então agora voltando lá no “main.js”, no Visual Studio Code, esse evento eu vou entrar nele com o ponto e vou acessar a propriedade code e vou imprimir no console, então console.log(evento.code).
+
+[09:39] Então vou voltar no console, vou recarregar a minha página, vou voltar no navegador, vou recarregar a página e vou pressionar a tecla só para vocês verem o que acontece, isso tem que estar com foco no botão. Então vou clicar “Tab” e vou apertar, por exemplo, a b c d, “Enter”, espaço, “tab”.
+
+[10:03] Então vemos que em tempo real, no mesmo momento que pressionamos uma tecla do teclado, já é impressa qual tecla, a informação de qual tecla o usuário apertou. E agora então temos a informação necessária para criar a condição dentro do if. Então agora dentro do if eu vou fazer if (evento.code, precisa ser igual ao texto, eu escrevi “Espaço”, mas sabemos que é em inglês, Space, então if (evento.code ‘Space’) { para conseguir executar o código tecla.classList.add(‘ativa’);.
+
+[10:44] Só que faltou o operador de igualdade para fazer essa condição verdadeira. Então eu preciso colocar esse operador de igualdade em if (evento.code ‘Space’) {. Normalmente, quando viemos da Matemática, usamos o operador de igual =, evento.code é igual a Space? Só que sabemos que no JavaScript o operador, o igual não tem essa função de igualar, mas sim de atribuir, de adicionar o que tem do lado direito para dentro do lado esquerdo.
+
+[11:23] Então nesse caso é a mesma coisa, eu preciso usar o operador de igualdade, não de atribuição, que é representado pelo igual igual ==. Só que existem dois operadores de comparação, esse operador de igualdade já vai me retornar, vai fazer essa conta e vai retornar verdadeiro ou falso, uma condição verdadeira. Inclusive eu posso colocar essa operação no console.log para eu ter certeza. Então event.code == ‘Space’, vou salvar, vou recarregar no navegador e vou dar um foco em uma tecla do Midi e vou pressionar o espaço.
+
+[12:06] true, verdade, eu apertei “espaço”. Agora vou apertar “Enter”. false. Ou seja, a condição já deu falso. Eu vou apertar qualquer tecla, por exemplo o H. false de novo. Ele agora incrementou para dois (false). Vou apertar “Space” de novo. Então vou clicar aqui no “Space”. true.
+
+[12:26] Então verificamos no console que essa "conta" evento.code == ‘Space’, vai retornar true. Vai verificar se a condição for verdadeira. Então agora vamos ver se vocês notaram que quando estou apertando outras teclas do teclado, então vou voltar no foco, vou apertar J e não está ficando vermelho, K, não está ficando vermelho, “Enter”, vai reproduzir som, mas não vai ficar vermelho. Isso no Firefox, vou apertar “espaço”, ficou vermelho. Porque a condição foi verdadeira.
+
+[13:02] E também já temos que colocar para a teclar “Enter”. Mas antes vamos conhecer um pouco mais sobre esse tipo de operador. Existem dois tipos de operadores de igualdade no JavaScript o “==” e o “===”, três vezes. E este é o mais seguro para utilizarmos para nossas lógicas. Por quê? A diferença entre eles, vou explicar no console do navegador. Vou limpar meu console e vou explicar para vocês.
+
+[13:37] Por exemplo, eu tenho o número 1, eu posso escrevê-lo com ou sem aspas. Porém, qual é a diferença? Sem aspas ele é um número do tipo Number e com aspas ele vai ser um texto com o número 1 dentro. E se eu usar o operador de igual igual, 1 == “1” ele vai comparar se o valor 1 é igual ao valor 1 que está dentro do texto e ele vai retornar true, porque realmente ele está comparando apenas valores, então verdade.
+
+[14:11] Agora se eu comparar 1 (número) com 1 (dentro de um texto), 1 === “1”, falso, porque o número 1 é diferente de um texto que tem escrito dentro o número 1. E tão com o operador de três iguais ele vai comprar não só o valor, mas também o tipo do dado, se ele é um texto ou se é um número, então se eu comparar 1 (número) com outro número 1, 1 === 1, aí sim vai ser verdadeiro.
+
+[14:44] Então esse é operador mais seguro para usarmos em comparações de igualdade. Agora que sabemos como criar uma condição no nosso código e ainda com base em uma informação que vem no evento do teclado, precisamos continuar nosso código para a tecla “Enter” e perceber como reduzir repetições do código com o operador lógico ou. Vejo você lá.

@@ -1,0 +1,51 @@
+function tocaSom(idElementoAudio){
+    document.querySelector(idElementoAudio).play();
+}
+
+const listaDeTeclas= document.querySelectorAll('.tecla');
+
+
+for (let contador = 0; contador < listaDeTeclas.length; contador++) {
+    const tecla =listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`;
+
+    tecla.onclick =function(){
+        tocaSom(idAudio)
+    }
+    
+}
+
+
+Transcrição
+[00:00] No nosso último vídeo conseguimos finalmente terminar de implementar as funcionalidades completas do Alura Midi. Então se eu clicar em cada tecla do teclado do nosso Midi, o som daquele instrumento é reproduzido.
+
+[00:17] E no código conseguimos fazer de certa forma um código inteligente, automatizado, que tem poucas repetições ou basicamente nenhuma repetição, e conseguiu espelhar essa funcionalidade para todas as teclas. Agora pensando em melhoria de código, ainda há bastante coisas que podemos fazer. E aqui nesse vídeo vamos melhorar um pouco mais em relação a essa forma de percorrer cada elemento por uma lista, que estão dentro de uma lista.
+
+[00:52] Utilizamos a estrutura de repetição while, que vimos que depende de uma condição ser verdadeira ou falsa para determinar se aquela repetição, essa rotina que está dentro das chaves do while vai ser aplicada. Porém, imagina que podemos aumentar o Alura Midi e em vez de ser apenas um teclado digital, podemos querer oferecer para os usuários outros instrumentos, um bongo, um piano, uma harpa, enfim, podemos aumentar a quantidade de instrumentos que queremos oferecer para os nossos usuários do Alura Midi.
+
+[01:40] Portanto, o while dependeu de um fator externo para que ele pudesse funcionar, que é no caso o contador. Tivemos que criar uma variável, uma referência variável chamada contador, que é verificada a cada repetição do while e tem seu valor modificado também a cada repetição da nossa rotina do while.
+
+[02:07] Porém, imagina se tivéssemos outros instrumentos que tem botões, então se fôssemos reproduzir outros whiles, se tivéssemos outras listas para reproduzir, teríamos que declarar outros contadores e então começaria a voltar a ter repetições em nosso código, teríamos que criar, por exemplo, um contador let contador2. Ou contadorBongo, contadorPiano, enfim, essa variável contador iria ficar repetitiva.
+
+[02:51] E o JavaScript oferece outras estruturas na linguagem que podem resolver esse problema de forma mais otimizada, ou seja, já oferece contido nele toda a estrutura, tanto do contador como da parte da condição para nossa rotina de repetição em encerrar e também da parte da incrementação desse valor contador.
+
+[03:16] E essa estrutura que vamos utilizar no lugar do while se chama for, e for significa “para”. O for uma estrutura de laço de repetição ou de loop, que também vai fazer a mesma coisa, enquanto uma instrução, uma condição for verdade, ele vai repetir essa rotina, porém a vantagem em relação ao while é que o contador pode ser declarado ainda dentro dos parênteses do for.
+
+[03:51] Então agora eu substitui a palavra while por for e dentro do parênteses eu vou fazer a declaração do meu contador, let contador = 0; e depois do ponto vírgula eu vou ter minha condição. Então eu não vou mais precisar ter a variável let declarada fora do nosso laço de repetição, da nossa estrutura, declaração de repetição.
+
+[04:26] E também a terceira vantagem do nosso for, a primeira é ter a declaração do contador dentro, junto com o segundo parâmetro do for ter a condição para o nosso laço encerrar, e também a terceira é que essa incrementação que estamos fazendo aqui no contador, que é contador recebe contador mais 1, pode ser declarada nesse terceiro parâmetro do for, com uma sintaxe muito enxuta e muito bonita que é contador++.
+
+[05:06] Esse contador++ vai fazer exatamente o que essa linha de código na linha 21 está fazendo, que é pegar o contador, o valor atual da variável contador, incrementar mais 1 e guardar novamente essa execução desse código na variável contador, reatribui esse novo valor. Então não vamos mais precisar colocar esse código da linha 21 dentro do for. Vamos usar console.log só para verificar novamente, eu vou tirar o comentário, vou tirar o console.log do nosso idAudio para o nosso código ficar mais bonito.
+
+[05:53] Vou salvar. Também vou mover o template string para depois da linha da constante idAudio para ficar tudo bonitinho, as declarações das nossas constantes, o onclick e o console.log no final. Vou salvar o meu “main.js”, vou no navegador, vou recarregar o Chrome.
+
+[06:13] 12345678 como já vimos, 0 a 8. Lá no Firefox agora eu vou recarregar. Também confirmou o nosso contador ainda funcionando do jeito que esperamos. E vamos ver também agora se os nossos botões estão ainda reproduzindo o som. Então vou tocar a tecla Puff.
+
+[06:37] Deu certo. Vou tocar a tecla Tim. Deu certo aqui no Firefox, vamos ver no Chrome, vou recarregar novamente, colocar a tecla psh e a tecla tom, deu certo. Então vou só remover esse console.log para o nosso código ficar mais limpo.
+
+[06:57] É sempre bom deixar também no fim do código uma nova linha e não encerrar o final do arquivo com um final de código é sempre bom deixar esse respiro, porque depois se o nosso código vier a sofrer algum tipo de transformação por ferramentas que juntam o código, que ofuscam o código, isso vocês podem conhecer em cursos mais avançados. Então é uma boa prática sempre deixar uma linha vazia no fim do arquivo.
+
+[07:27] Então agora nosso código está um pouco mais bonito, um pouco mais funcional e pronto para receber novos instrumentos caso quisermos.
+
+[07:37] Bom, até agora vimos uma melhoria em nosso código usando o for. Agora vamos seguir no nosso desenvolvimento do nosso Alura Midi fazendo algumas melhorias de acessibilidade e usabilidade do Alura Midi descobrindo como vamos fazer para adicionar funcionalidades e interações usando as teclas do teclado.

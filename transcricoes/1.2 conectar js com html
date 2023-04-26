@@ -1,0 +1,28 @@
+Transcrição
+[00:00] Agora já sabemos como colocar um Alert dentro de um onClick e reproduzir um primeiro código JavaScript bem simples. Porém, se olharmos no nosso HTML, fizemos um código dentro da tag e escrevemos JavaScript dentro da tag do HTML.
+
+[00:22] E se lembrarmos do CSS, isso é muito próximo com o CSS inline, que já sabemos que não é muito bom fazer o CSS inline, justamente porque fica difícil reproduzir os mesmos estilos para outras tags, se eu quiser modificar alguma coisa, eu vou ter que mexer em todas as outras tags, correndo o risco de cometer algum erro. E é a mesma coisa com JavaScript. Acabamos de fazer JavaScript inline através do atributo onClick.
+
+[00:52] Porém, imagina se tivéssemos 88 teclas, como um piano completo ou outros instrumentos. Então ficaria muito difícil reproduzir essa lógica se tivéssemos que colocar elemento por elemento, tecla por tecla do nosso instrumento e se tivéssemos que fazer uma modificação.
+
+[01:14] Então sabemos que o JavaScript inline não é legal, apesar de podermos e conseguirmos fazer para fins de teste e conhecer as potencialidades do JavaScript no HTML. Sem contar que cada linguagem tem a sua responsabilidade, o HTML tem responsabilidade de fazer a estrutura semântica da página, o CSS de fazer os estilos da página e o JavaScript vai ser o responsável por adicionar o dinamismo e as atualizações de programação, a lógica na página, utilizando essa lógica de programação que não é fornecida dentro do HTML.
+
+[01:57] Portanto, como que podemos então fazer o JavaScript de uma maneira consistente e correta? Com o arquivo externo, assim como o CSS tem um arquivo CSS, o HTML tem um arquivo HTML, também vamos ter um arquivo JavaScript. Então eu vou criar dentro da minha estrutura de arquivos, no nosso Visual Studio Code, eu tenho um atalho, “New File”, é um ícone com um mais, uma folhinha e o +, “New File” ou novo arquivo, o meu está em inglês.
+
+[02:34] E o nome desse arquivo novo que eu vou criar vai se chamar “main.js”. Vou dar o “enter” para confirmar a criação deste arquivo e ele já entra nesse arquivo novo criado ponto JS.
+
+[02:52] Esse nome main, do inglês significa principal e temos uma convenção dos desenvolvedores de JavaScript em utilizar esse nome para o arquivo principal de JavaScript sempre para facilitar em todo o site ou aplicação escrita com JavaScript, facilitar qual é o arquivo que da entrada a toda a lógica e todos os arquivos JavaScript. Portanto vamos seguir essa convenção utilizada pelo mercado.
+
+[03:22] E como eu faço agora para ligar esse arquivo JavaScript dentro do HTML? Então no meu HTML eu tenho a tag head que já tem tags que ajudam a configurar a minha página, por exemplo metadados, temos o título, links com ícones, com CSS, com fontes e também podemos ter a tag script, que é a tag responsável de carregar o JavaScript dentro do nosso HTML. É legal você sempre utilizar essa ajuda do VS Code para escrever script, para garantir que você não cometeu nenhum erro de digitação. Então vou dar o “Enter”.
+
+[04:06] E assim como a tag IMG, a tag áudio, a tag script tem o atributo SRC, que é um atributo que significa source, ou seja, recurso que vai ser carregado por essa tag. Então eu vou usar o sinal de igual, aspas duplas e dentro das aspas duplas eu vou indicar o caminho desse arquivo, que vai ser o nosso “main.js”, e também já está sendo indicado pelo VSCode qual é o arquivo.
+
+[04:34] Então vou dar um “Enter”, vou salvar o meu arquivo HTML e agora como eu garanto que esse arquivo foi corretamente carregado e está funcionando no meu HTML? Bom, da mesma forma que usamos o alert para conhecer o onClick no botão, eu também posso utilizar ele dentro do meu arquivo “main.js” para testar o funcionamento desse arquivo.
+
+[05:02] Então alert (‘Olá mundo’);, vou escrever essa mensagem e no final, depois do parêntesis, vou colocar ponto e vírgula. O ponto e vírgula no JavaScript é opcional, ele funciona na maioria dos casos, porém é altamente recomendado utilizar o ponto e vírgula para evitarmos alguns erros no futuro. Então eu vou salvar o arquivo js com o atalho “Ctrl + S” e vou agora voltar para o meu navegador.
+
+[05:51] Voltando no navegador, eu vou recarregar a página e uma mensagem com a caixinha do alert de primeira já é exibida para nós, “Olá mundo”.
+
+[06:02] No Firefox fica tudo cinza e a caixinha cinza com o botão Ok, e depois aparece o nosso Alura Midi. E no Chrome também eu vou recarregar e a página em branco com a caixinha do Chrome com botão azul “Olá mundo”, confirmando que o nosso arquivo “main.js” foi devidamente carregado na nossa aplicação no Midi.
+
+[06:28] Agora olhando o nosso arquivo “main.js”, o nosso HTML, temos um desafio, um desafio inclusive para o nosso próximo vídeo, que é como eu faço para pegar esse botão que está dentro do HTML e chamar dentro do “mains.js” e fazer alguma coisa com esse botão. Então no nosso próximo vídeo vamos descobrir isso.

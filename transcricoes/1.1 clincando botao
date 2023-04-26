@@ -1,0 +1,34 @@
+Transcrição
+[00:00] Olá! Agora que você já conhece o Midi, precisamos descobrir como vamos começar a desenvolver as funcionalidades dele. Por ser um instrumento musical, ao clicar nos botões, queremos que reproduza um som. Porém, como fazemos para o HTML reproduzir um som para nós? Vamos abrir o nosso código lá no Visual Studio Code, nosso editor de código.
+
+[00:29] E abrimos toda a estrutura de pastas dos arquivos do curso e vemos que temos uma pasta com o nosso CSS, com as imagens e com os arquivos de som, que são os arquivos que vamos reproduzir, os sons que vamos reproduzir ao clicar nos botões. E o nosso em “index.html”, que é o HTML principal da nossa aplicação.
+
+[00:50] Podemos ir direto para tag body e olhamos que tem uma section com uma série de buttons, que são os botões que vimos no navegador, que já estão estilizados com CSS para ter essa cara do Midi.
+
+[01:09] Embaixo dessa sessão com os botões temos uma série de tags áudio. Essas tags áudios são as responsáveis por carregar e fornecer ao navegador os sons dos instrumentos que queremos reproduzir. A tag áudio não está aparecendo no HTML porque omitimos um atributo importante para a visualização dela. É um atributo dentro da tag áudio, chamado controls, esse atributo, colocando ele vai começar a exibir a tag.
+
+[01:45] Então vou colocar em todas as minhas tags, vou selecionar e apertar o atalho “Ctrl + D”, que seleciona todos daquela mesma tag, e vou escrever aqui o atributo controls nas 9 tags áudio, vou salvar o meu arquivo HTML com atalho “Ctrl + S” e vou até o navegador.
+
+[02:05] No navegador eu vou recarregar a minha página e vou notar que as tags áudios começaram a ser exibidas, justamente porque adicionamos o atributo controls. E percebemos que essa tag áudios já vem com controles nativos, como botão de play, uma barra de progresso, o número de tempo do som, um botão para aumentar ou diminuir volume e se eu clicar no botão de Play, já vai reproduzir os sons dos nossos instrumentos, que no caso são sons de percussão, de uma bateria. Eu vou reproduzi-los para vocês escutarem.
+
+[02:41] Então a tecla Pom, o som do Clap, o som do Tim e o restante dos sons vocês podem ir conhecendo no projeto de vocês. No Firefox a tag áudio tem uma aparência muito específica e muito parecida com um mini player mesmo, ela é quadrada, com fundo preto, os botões são brancos e se a gente abrir no Chrome, então vou abrir o meu Chrome e vou atualizar.
+
+[03:11] Eu começo ver esse mini player de uma forma completamente diferente. Na verdade, sim, é perceptível que é um player, porque tem os botões de play, tem a barra de progressão, o tempo o som, porém ele tem um fundo branco, bordas arredondadas, botões pretos, o que começa a divergir essa aparência entre um navegador e o outro e isso não é legal. Queremos uma consistência de design na nossa aplicação para os nossos usuários. E esse tipo de tag é muito difícil customizar ou não é possível customizar com CSS diretamente.
+
+[03:49] Portanto, precisamos passar o controle da reprodução do som que está na tag áudio para os nossos botões, e é aí que começamos a precisar utilizar uma linguagem de programação que trabalhe com HTML e que trabalhe com CSS, que é o JavaScript.
+
+[04:11] Agora vamos voltar para o VS Code e vamos retirar esses atributos controls da tag áudio, não vamos precisar. E vamos até ao botão, o primeiro botão do nosso Alura Midi, a tecla Pom, o botão da tecla Pom.
+
+[04:25] E para fazermos alguma coisa com JavaScript nesse botão, podemos utilizar o atributo HTML aqui na tag button chamado onclick. O atributo onclick, como alguns vários atributos HTML, também tem o sinal de igual e aspas duplas, onde dentro das aspas duplas eu já posso escrever qualquer código JavaScript. E vamos começar com um código bem simples, só para testarmos esse dinamismo, coisa que o JavaScript é capaz de adicionar a uma página.
+
+[05:03] Então eu vou usar uma função muito famosa do JavaScript chamada alert, um alert cria uma janela com uma mensagem, onde podemos dar o OK para essa janelinha, e ela é muito utilizada em várias aplicações para testar, para mandar mensagens para os usuários.
+
+[05:22] Então eu escrevo dentro das aspas alert(‘’), precisa ser aspas simples para não entrar em conflito com aspas duplas do HTML. E dentro das aspas simples eu vou escrever uma mensagem. Como eu estou clicando em uma tecla de um som, eu vou escrever dentro Pom, que é o som do instrumento que está nesse botão.
+
+[05:49] Então agora eu vou salvar o meu HTML com “Ctrl + S” e vou retornar o meu navegador. No meu navegador do Chrome eu vou recarregar e vou clicar na tecla Pom.
+
+[06:03] Ao clicar na tela Pom eu já consigo visualizar o alert, aquela janelinha com o ok. E vamos ver como isso aparece no Firefox? Então vou abrir o Firefox, vou recarregar e vou clicar na tecla Pom.
+
+[06:18] E a janelinha do alert já apareceu. E essa janelinha é o nosso primeiro código JavaScript que fazemos nesse curso, adicionando dinamismo a nossa aplicação. Claro, ainda está bem longe da nossa proposta, porém já é o nosso primeiro passo para saber o que o JavaScript faz. Então agora no nosso próximo vídeo você vai saber como eu faço um código ainda melhor para conseguir adicionar algum comportamento com o JavaScript.
+
+CONTINUAR LENDO

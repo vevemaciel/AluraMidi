@@ -1,0 +1,50 @@
+
+function tocaSom(idElementoAudio){
+    document.querySelector(idElementoAudio).play();
+}
+
+const listaDeTeclas= document.querySelectorAll('.tecla');
+
+    const tecla =listaDeTeclas[contador];
+    const instrumento = tecla.classList[1];
+    const idAudio = `#som_${instrumento}`;
+
+
+
+
+
+
+
+Transcrição
+[00:00] No vídeo anterior aprendemos como acessar cada elemento da nossa lista de forma otimizada, utilizando a estrutura de repetição while, para aplicar uma rotina em cada elemento. No nosso caso a rotina é acessar cada elemento, e acessar o atributo onclick e atribuir uma função que vai tocar um som.
+
+[00:26] Porém percebemos que dessa forma todas as nossas teclas do Midi ficaram com o mesmo som, pois estamos atribuindo a função tocaSomPom. Portanto, nosso desafio nesse vídeo é fazer uma função mais genérica, que possa tocar o som de qualquer tecla. A primeira coisa que vamos fazer é criar uma função que tenha um nome mais genérico. Então ao invés de ser função tocaSomPom, então no VS Code, no arquivo “main.js”, eu até vou tirar esse comentário que eu coloquei, podemos começar a eliminar coisas no arquivo que não vamos usar.
+
+[01:14] E na declaração da função, aqui na linha 1 no meu caso, function tocaSomPom, eu vou fazer um nome mais genérico. E um nome mais genérico seria algo que não esteja atribuído ao nome do som, então vou colocar apenas function tocaSom e dentro do da nossa função, do bloco da função onde tem o código dela que ela está armazenando para ser executado quando chamarmos essa função, temos o document.querySelector, buscando o seletor da tecla pom, da tag áudio, que tem esse ID ’#som_tecla_pom’).play().
+
+[01:57] Isso aqui também não pode estar fixo, já que o áudio vai ser informado, vamos precisar de certa forma informar qual vai ser a tag áudio específica e precisamos obter o ID dessa tag áudio em específico, que vai ter um som que vai ser reproduzido por essa função que toca um som de um dado ID, de uma determinada tag áudio.
+
+[02:27] Portanto esse seletor também não pode ser fixo, ele precisa ser variável e precisa ser informado à nossa função. Quem chamar a função tocaSom vai precisar passar o ID para que a nossa função consiga tocar o som desse elemento áudio. Portanto vamos necessitar de um parâmetro.
+
+[02:53] O parâmetro é alguma coisa que conseguimos passar para nossa função e que a execução, que o código da nossa função depende para funcionar corretamente. E muitas vezes esse parâmetro pode ser opcional, no nosso caso não é, realmente precisamos desse parâmetro, ou seja, desta informação, para nossa função tocar o som corretamente. Então para eu declarar um parâmetro de uma função basta que na assinatura dessa função, que é a declaração function, o nome desta função e o parâmetro dentro dos parênteses vamos criar o parâmetro.
+
+[03:33] No nosso caso, o que vamos precisar? Do ID da tag áudio. Então eu posso escrever idElementoAudio, quanto mais descritivo, mais informativo for o nome das nossas referências, sejam elas constantes, variáveis, funções, parâmetros, melhor e mais fácil de entender o nosso código fica, chamamos isso de nomes significativos. Então é importante criarmos nomes que tenham sentido.
+
+[04:06] Então deixa eu só escrever um português idElementoAudio, vamos precisar desse parâmetro, ou seja, que quem utilizar a função tocaSom informe a essa função o ID do elemento áudio. E portanto, como isso é um valor variável, eu posso já imediatamente utilizar dentro da minha função que vai precisar dentro do querySelector. Como é uma variável, ou seja, uma referência, eu não posso colocar isso entre aspas dentro do querySelector, eu apenas digito document.querySelector(idElementoAudio).play();
+
+[04:48] Então vou usar o auto complete para me ajudar a escrever corretamente e já tenho nossa função um pouco mais genérica funcionando de certa forma no nosso código. Para testarmos, primeiro eu tenho que arrumar dentro do while o onclick = tocaSomPom, agora vai ser onclick = tocaSom então vou corrigir o nome de acordo com a nossa mudança, vou salvar o arquivo e agora vou voltar no navegador e vou testar a nossa função tocaSom utilizando os parâmetros.
+
+[05:29] No nosso onclick dentro do while ainda não estamos informando os parâmetros, logo vamos fazer isso, primeiro precisamos testar se o código que fizemos está correto. Então eu vou recarregar a minha página no Chrome, vou limpar o console, porque estamos imprimindo o contador, então eu só limpo no botão de limpar o console e vou chamar a função tocaSom.
+
+[05:54] Aqui temos a referência, abre e fecha parênteses e ao colocar o cursor dentro do parênteses ele já me informa qual é o parâmetro que eu preciso passar, que é o ID do elemento áudio. Se eu não passar, ele já deve estar me antecipando no console o erro que eu vou obter se eu não passar o parâmetro, vou dar um “Enter”, ele vai falar que não consegue ler a propriedade play de algo que está nulo.
+
+[06:19] Ou seja, no meu “main.js” essa parte do código document.querySelector e idElementoAudio que não foi passado vai retornar um código nulo, portanto ele não consegue executar o play de algo que está nulo. Então vamos informar um ID de um elemento áudio que existe.
+
+[06:43] Então vou na aba “Elements” e vou olhar minhas tags áudios de vou ver aqui os IDs delas. Então só uma tecla pom já sabemos, vamos pegar aqui um ID diferenciado, vamos pegar o som tecla Tic. Então eu vou copiar, vou escrever tocaSom(‘’), abre parênteses, vou colar.
+
+[07:04] Lembrando que tem que estar entre aspas o valor, porque o valor que vamos informar é um texto, então as aspas vão ter que ser passadas junto no parâmetro. E lembrando que esse seletor é um ID, um atributo ID, então precisa começar com hashtag. Fazendo isso o parâmetro fica entre aspas tocaSom(‘#som_tecla_tic’), fecha aspas. Estou usando aspas simples e fecha o parênteses. Vou dar o “Enter” e assim que dermos o “Enter” já vai sair o som do Tic.
+
+[07:39] Ficou muito baixinho o som do Tic, eu vou escolher outro. Saiu, mas bem baixinho. Vou colocar o Tom. Vemos que é uma caixa. Vamos tentar o psh. Saiu. Então a nossa função já está correta, ela já está recebendo o som adequado, de acordo com o ID, já está reproduzindo o som adequado de acordo com a ID da tag áudio.
+
+[08:11] Agora que já temos uma função mais genérica de tocar som, precisamos saber como dentro do nosso “main.js”, dentro do while, utilizamos essa função de forma mais genérica. Pois se tentarmos executá-la agora, vou recarregar, vamos ter alguns problemas no nosso código e vamos entender o que que está acontecendo.
+

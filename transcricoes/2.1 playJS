@@ -1,0 +1,22 @@
+Transcrição
+[00:00] Na aula anterior aprendemos como trazer um botão que está no HTML para dentro do JavaScript, e portanto assim vamos conseguir adicionar um clique e fazer as demais funcionalidades que precisamos para funcionar o nosso Alura Midi. Porém, agora precisamos descobrir como fazemos para reproduzir um som que está carregado dentro de uma tag áudio.
+
+[00:28] Acessando o nosso navegador, eu estou no console, vou abrir a aba “Elements” e a aba de elementos tem a nossa tag áudios. Lembrando que a nossa tag áudios só não está sendo exibida porque omitimos o atributo controls, porém este atributo, essa tag contém todos os controles necessários para reprodução de uma mídia, como um som. Portanto vamos ter disponível também, via JavaScript esses controles para reprodução do som.
+
+[01:02] Então seguindo a mesma lógica do botão, precisamos acessar essa tag áudio para então conseguir acessar os controles dela. Então vamos usar o document, porque queremos procurar o elemento dentro do documento, utilizando a função, então document.querySelector(‘’), que é a função que busca um elemento através do seu seletor, então abre e fecha parênteses e abre aspas simples dentro dos parênteses.
+
+[01:33] Podemos olhar na aba “Elements” novamente qual é o seletor que queremos usar, podemos usar tanto o nome da tag áudio quanto o ID dela. E para sermos mais certeiros, o ideal é utilizarmos então o ID dessa tag. Então vou colocar para o seletor começar com ID, então #som_tecla_pom.
+
+[02:00] Então ao dar “Enter” eu vou ver que realmente eu localizei e consegui trazer com o JavaScript a referência desse elemento áudio. Agora que eu sei acessá-lo é muito fácil entrar dentro dele e encontrar os controles de reprodução da mídia que ela está carregando.
+
+[02:20] Portanto eu posso repetir esse mesmo código, document.querySelector(‘#som_tecla_pom’) e esse código representa uma tag, um elemento áudio, portanto, se logo após os parênteses do querySelector eu colocar um ponto, eu estarei acessando este elemento, estarei entrando dentro dele e conseguindo acessar todas as funcionalidades que estão disponíveis dentro desse elemento áudio, que está sendo retornado pelo querySelector.
+
+[03:04] Então como é uma tag, um elemento de multimídia, eu vou ver que quando eu cliquei o ponto ele já abriu uma janelinha embaixo no console com uma lista de coisas, de atributos, de funcionalidades disponíveis para esse tipo de elemento. E com a setinha do teclado para baixo eu consigo ver e navegar todas as coisas que tem dentro dessas funcionalidades ou atributos e eu percebo que existe uma chamada Play.
+
+[03:34] E é justamente essa que dá o play no nosso som. E eu sei que é uma funcionalidade, porque quando selecionei Play, eu vi que logo embaixo tem um F desenhado, isso significa que é uma função. Então se é uma função, tenho que usar sintaxe de função para reproduzir. Abre e fecha parênteses.
+
+[04:00] Eu não preciso passar nada entre parênteses para que ela funcione, eu só vou apertar o “Enter” e esse código vai ser executado e vamos escutar o som do pom. Então já sabemos como reproduzir o som de uma tag áudio com JavaScript, porém esse retorno que veio, que é uma promise pending, não precisamos nos preocupar e não vamos usar isso. Então vamos seguir agora com esse código dentro do nosso “main.js”.
+
+[04:36] Então do nosso “main.js” eu vou dar “Enter” e vou escrever o código que fizemos e executou lá no nosso console. Então document.querySelector(‘#som_tecla_pom’).play();. Vou salvar e vou abrir o meu navegador e vou recarregar. O que esperar dessa execução?
+
+[05:20] Então recarreguei e recebi um erro. Gente, está tudo bem receber erros, temos que estar preparados e de coração aberto para conseguir tratar esses erros.

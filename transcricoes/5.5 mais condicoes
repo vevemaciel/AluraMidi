@@ -1,0 +1,68 @@
+Transcrição
+[00:00] O nosso Alura Midi está lindo! Com todas as funcionalidades prontas, ou seja, todos os botões estão reproduzindo o som dos seus respectivos instrumentos, e também a navegação está completa, podendo ser feita via mouse ou via teclado e os estilos consistentes.
+
+[00:20] Agora nos resta melhorar um pequeno probleminha da nossa aplicação que está na função tocaSom. E eu vou mostrar no console do navegador para vocês. Podemos chamar essa função diretamente pelo seu nome, tocaSom. Idealmente passamos o ID de um elemento audio, mas o que vai acontecer se eu passar como parâmetro um ID ou uma classe de um elemento que não está declarado no nosso documento HTML?
+
+[00:56] Por exemplo, classe piano, tocaSom('.piano'). Não existe ninguém com essa classe no documento, então vou dar um “Enter” e vai me retornar um problema dizendo que o document.querySelector de piano é nulo.
+
+[01:12] Lembrando que esse seletor é passado, vou mostrar para vocês a nossa função tocaSom que está na linha 1 do código “main.js”. Então recebemos um seletor e logo passa para o querySelector buscar o elemento e depois dar play.
+
+[01:32] O outro problema é justamente essa parte do play, então vamos retornar no console do navegador e eu vou chamar a função tocaSom e passar um seletor de um elemento que existe no nosso documento HTML, porém não é uma tag de áudio, um elemento áudio. Então por exemplo, se eu passar button o que vai acontecer?
+
+[01:58] O play daquele elemento não é uma função, ou seja, ele vai dizer que o resultado do querySelector, que é o botão, não tem uma função play, é basicamente isso que está me dizendo. Portanto, essa função precisa ser aprimorada e precisamos tratar estes problemas com algumas estruturas com o que já vimos anteriormente, mas agora aplicada aqui para tratar problemas de código.
+
+[02:28] Vamos voltar no Visual Studio Code. E uma pequena coisa que podemos já arrumar, sabendo que não estamos recebendo apenas IDs de elementos áudio, estamos recebendo seletores, podemos simplesmente nomear esse parâmetro para algo mais consistente. Claro que podemos dar um nome que ajude a pessoa que use a função tocaSom diretamente entenda o que ela tem que passar, por exemplo, seletor de uma tag áudio.
+
+[03:06] Porém a pessoa pode tentar trapacear e passar um outro tipo de tag para tentar encontrar algum problema, alguma vulnerabilidade em nosso código, em nossa aplicação.
+
+[03:19] E eu vou tirar esse play por enquanto do querySelector, vou deixar para usarmos depois. E sabemos que então esse código do document.querySelector vai procurar um seletor e já vimos no console do navegador que dependendo do que foram passado pode retornar um nulo ou vai retornar que não consegue dar o play, ou seja, vai retornar um elemento.
+
+[03:44] Então eu vou guardar o retorno desta busca dentro de uma referência constante, vou criar uma constante, vou chamá-la de elemento e vou armazenar este retorno para poder ser mais fácil trabalharmos no nosso código mais para frente. const elemento = document.querySelector(seletorAudio).
+
+[04:04] E agora temos uma condição para executar o nosso código. Por exemplo, o que queremos fazer é chamar o elemento e dar um play nele, porém eu só posso fazer esse código elemento.play(); se o elemento realmente existir. Porém, se ele não existir sabemos que o valor dele vai ser nulo, portanto, antes de executar esse código podemos verificar se o elemento está nulo.
+
+[04:33] Então se temos uma condição para fazer alguma coisa caso o elemento seja nulo ou não, podemos usar a estrutura do if que já conhecemos, if (elemento === null) então se o elemento for estritamente igual a nulo, e o null escrevemos assim diretamente, sem aspas nem nada. E agora temos que pensar o que vamos fazer se o elemento for nulo. Para não dar um erro para o usuário podemos mandar uma mensagem avisando do problema, por exemplo, usando o alert ou podemos o console.log.
+
+[05:23] Vamos testar com alert, por exemplo, alert(‘Elemento não encontrado’), vou salvar isso e vamos testar no navegador. Então vou recarregar e vou passar a função tocaSom com um elemento que não existe, nossa classe piano.
+
+[05:46] Ao executarmos a classe piano, a função com a classe piano, vemos que realmente o nosso alert funcionou. Claro que eu fui bem dramática, coloquei um alert, mas poderia ser um console.log, se queremos ser mais discretos, por exemplo, console.log(‘Elemento não encontrado’), então fica a critério do que você acha que vai ser a melhor experiência para o usuário de vocês do Midi. Então vou colocar um barra barra e vamos testar de novo tocaSom passando o piano.
+
+[06:23] Elemento não encontrado, então tem essas duas formas de apresentar um problema para o usuário. Outra coisa que temos que fazer agora é quando o elemento é diferente do nulo, ou seja, se o querySelector retorna um elemento. Então podemos usar o if também, if (elemento ) diferente de nulo. Temos um operador novo que não conhecemos que é o diferente. Diferente no JavaScript, ou not equals, “não é igual”, é denotado por exclamação e igual, junto, e do outro lado o que vamos comparar, então if (elemento != null).
+
+[07:07] Então se elemento não for igual a nulo, faça alguma coisa, por exemplo podemos dar o elemento play, que é o que queríamos fazer. Vou colocar esse código elemento.play de volta no nosso if e podemos testar na nossa aplicação. Então se o elemento não for nulo eu quero dar o play. Então eu vou passar aqui um hashtag, a hashtag de uma tag áudio que já existe, só para vermos se tá funcionando de volta a nossa funcionalidade, tocaSom ('#som_tecla_tim'), vocês vão ver o “tim” agora.
+
+[07:51] Faltou dar o clique na nossa aplicação, então tem que dar um clique antes de executar a função, agora vai.
+
+[07:59] Agora tocou. Agora se eu passar um elemento que existe e for um elemento que não tem o play, por exemplo, o button. Ainda temos o problema que play não é uma função desse tipo de elemento. Então temos que se certificar que o elemento que está sendo passado é do tipo áudio, é uma tag áudio para podermos aí sim executarmos o play nela.
+
+[08:27] Então como poderíamos fazer isso? Ou seja, descobrir qual é o elemento que foi encontrado pelo querySelector. Então podemos usar o console.log para explorar a estrutura de um elemento. Então vou colocar o console.log(elemento) no elemento e vou comentar esse código do elemento play por enquanto só para não termos um erro. E vamos explorar o que tem dentro de um elemento. Vou salvar, vou recarregar e vou chamar função tocaSom.
+
+[09:00] Eu estou no Mozilla Firefox e vocês vão perceber que no Firefox, quando eu dou o console.log de um elemento ele vem com esse triângulo aqui. Isso significa que eu posso expandir essa tag e olhá-la no formato de um objeto JavaScript que tem todas as propriedades e as funcionalidades que são possíveis executar para um elemento ou consultar, no caso de propriedade. Então por exemplo, as funcionalidades que já colocamos nos nossos botões, podemos verificar nos atributos.
+
+[09:35] onkeydown, a função que fizemos, o onclick, a função que programamos também. E então também conseguimos ver propriedades que já são fornecidas pelo próprio JavaScript e HTML.
+
+[09:51] Por exemplo, eu tenho uma propriedade chamada tagName, que tem o nome da tag “BUTTON”, porém está em maiúsculo. Se eu der mais uma olhada por tudo, tenho esse nodeName, também tem “BUTTON” em maiúsculo e tem essa localName, que também tem o nome, porém minúsculo. Como o JavaScript é case sensitive, ou seja, tem essa sensibilidade entre maiúsculo e minúsculo, eu prefiro usar essa localName, porque ela é toda minúscula.
+
+[10:25] Eu também posso olhar no Chrome para ver como fica isso. Então eu abri o Chrome, o console, vou recarregar minha página e vou executar tocaSom passando tocaSom(‘button’) para ver o que acontece.
+
+[10:36] No caso do Chrome ele não aparece esse triângulo, isso não quer dizer que não funcione explorarmos o objeto, ele está disponível para usarmos, porém o Chrome ele não oferece aquele triângulo para explorarmos e essa é uma diferença entre o Chrome e o Firefox na hora de implementarmos códigos com JavaScript. E o objeto do elemento é esse conjunto de propriedades e funcionalidades que estão por trás de um elemento.
+
+[11:11] Então vamos agora no “main.js”, vamos dar um console.log(elemento.localName), e agora qualquer elemento que eu passar lá precisa exibir no console o nome desse elemento, ou seja, o nome da tag desse elemento. Então vou recarregar o Firefox e vamos passar tocaSom(‘button’).
+
+[11:35] "button", porque o seletor é o próprio tag name. Agora se passarmos, por exemplo, o som do tecla “tim”, que é a tag name do elemento que está com ID, é áudio. Vamos ver se vai dar certo. tocaSom ('#som_tecla_tim')
+
+[11:49] "audio". Deu certo. Mas vamos tentar a mesma coisa lá no Chrome só para vermos e ele vem como ‘button’, deu certo também. Então agora eu já descobri qual a propriedade aonde esse elemento guarda a informação do nome. E se for um elemento do tipo áudio, queremos que dê o play.
+
+[12:13] Então lembra que temos aquela comparação == ‘audio’, queremos que fique play, console.log(elemento.localName == ‘audio’). Estou fazendo essa lógica dentro do console, então no momento eu vou imprimir no console true ou false. Então se eu se eu fizer isso no Chrome, vou passar tocaSom(‘button’).
+
+[12:32] Falso, não é igual a "audio". Agora se eu passar o ID da tag “tim” vai tocar o som, ele é igual a nossa tag áudio. Então agora vamos seguir para o nosso código.
+
+[12:49] Então se o elemento não for nulo e for igual a tag áudio, podemos colocar isso dentro de um outro if, vou tirar esse console, agora eu posso dar o play neste som.
+
+if (elemento != null) {
+    if (elemento.localName === 'audio') {
+        elemento.play();
+    }
+} COPIAR CÓDIGO
+[13:12] Então vamos executar o som do “tim”, então tocaSom(‘#som_tecla_tim’). E tocou. Agora vamos tentar com o piano e elemento não encontrado. E depois também temos aqui com o ‘button’. O Button por enquanto não colocamos nenhuma mensagem de erro caso seja um elemento inválido, mas vamos chegar lá.
+

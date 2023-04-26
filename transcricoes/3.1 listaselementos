@@ -1,0 +1,49 @@
+Transcrição
+[00:00] Olá. Bom, já vimos nas aulas passadas como conseguir reproduzir o som que está dentro da tag áudio e passar o controle para nossa tag button do Alura Midi. Agora temos um desafio de como fazer a mesma tarefa para as próximas teclas do nosso Alura Midi. Vamos voltar lá no nosso Visual Studio Code e a maneira mais simples ou com o que sabemos até agora, seria copiar esse código e renomear para cada tipo de som.
+
+[00:38] Vamos fazer isso só para ver como vai ficar e o tamanho que vai ficar o nosso arquivo “main.js”. Eu vou fazer e vou mostrar para vocês como isso vai ficar no fim.
+
+[00:55] Então basicamente vamos ter que copiar a função e o querySelector, tocaSomPom e vai ficar tocaSom..., vamos ver o outro instrumento, Clap, então tocaSomClap, document.querySelector(‘#som_tecla_clap’).play() e tocaSomClap. E vamos reproduzir isso mais sete vezes e vamos ver como vai ficar no fim.
+
+(vídeo acelerado do código sendo digitado mais sete vezes)
+
+[01:49] Agora conseguimos reproduzir o código que fizemos para todas as nossas nove teclas, olha como que está a situação desse código. Muito igual, muito parecido, já está salvo eu só vou recarregar meu navegador e vou mostrar para vocês.
+
+[02:08] Já aconteceu problemas que eu digitei alguma coisa errada, “splah is not defined”. Vou até olhar o meu código. Olha como fica difícil encontrar onde está o erro dessa forma, nem consigo encontrar direito onde está o splash.
+
+[02:29] Achei, faltou um S. Agora vou reproduzir os sons e vocês vão ver que está tudo funcionando, porém o nosso código está horrível, convenhamos.
+
+[02:50] Bom, se não quisermos avançar o código e só quisermos organizar e nos ajudar a entender, um recurso que o JavaScript tem e todas as linguagens de programação tem, é um recurso de comentários, que é basicamente um texto, uma frase que você pode escrever e que não vai ser executada como um código JavaScript, ela vai ser ignorada e serve só para nós desenvolvedores podermos ter uma ajuda, nós mesmos do futuro, quando revisitamos esse código, daqui um ano, daqui meses, conseguir entender o que nós mesmo escrevemos.
+
+[03:28] Então os comentários podem começar com barra barra //, que é o comentário em linha, podemos escrever por exemplo POM e podemos colocar umas linhas para separar e tem uma função do pom e tem o querySelector do botão pom.
+
+[03:53] Agora do Clap eu posso usar um comentário em bloco, que é o barra asterisco /* e então eu consigo dar um “Enter” e todas as linhas abaixo já ficaram cinzas, significa que a partir dali tudo está comentado, mas eu posso encerrar o meu comentário de bloco com asterisco barra */e entre esses dois símbolos, essas linhas são ignoradas, são consideradas como comentário.
+
+[04:26] Também posso fazer o clap para me ajudar nesse código, entender esse código, posso ir dividindo o meu código com comentários para conseguir ajudar a entender e dar manutenção. Mas, de novo, entramos naquela mesma questão: temos comentários, temos o código funcionando, mas imagina se tivéssemos 88 teclas.
+
+[05:02] Com 9 teclas já estamos com um código de 60 linhas e se começarmos a colocar os comentários, potencialmente já vai virar umas 90 linhas. Agora imagina se tivermos um monte de teclas, seria praticamente um horror conseguir trabalhar nesse código.
+
+[05:19] Agora então que vimos que não compensa fazer repetição de código, até porque se precisarmos mudar alguma coisa na funcionalidade das nossas funções que tocam som, teríamos que mexer em pelo menos nove funções, precisamos aprender uma nova coisa do JavaScript, que é automatizar as nossas funcionalidades e principalmente trabalhar com muitos elementos de uma vez só, precisamos aprender a trabalhar com listas de elementos.
+
+[05:52] E para isso, a primeira coisa que temos que fazer é ao invés de selecionar um único botão do nosso teclado, precisamos saber como selecionar todos os botões de uma vez e pegar todos eles de uma vez e colocar a função que toca o som. Então para isso eu vou usar o console do navegador, estou no Firefox, e no console vou digitar o nosso documento, document, porque dentro do meu documento eu quero fazer uma busca, então document.querySelector.
+
+[06:31] Só que ao invés de eu usar agora o querySelector, que o querySelector busca o primeiro elemento que ele encontrar com aqueles seletor informado, eu vou usar o querySelectorAll. O querySelectorAll é uma funcionalidade do JavaScript que busca todos os elementos com aquele seletor que vocês passaram aqui entre os parênteses, então eu vou abrir aspas simples e vou passar o seletor que todos esses botões tem.
+
+[07:06] Eu posso inspecioná-los na aba inspecionador e ver qual é. Sabemos que o nome da tag button não é um seletor muito bom, porque pode ser que eu tenha outros botões que não sejam do meu teclado no futuro da minha aplicação e pode dar algum problema. Eu quero garantir que sejam só os botões do meu teclado do Alura Midi.
+
+[07:30] Então eu vejo que tem aqui uma classe tecla, que tem todos os meus botões. Eu vou usá-la como seletor de todos os botões. Então seletor de classe começa com .tecla e vou dar “Enter” para ver o que acontece.
+
+[07:46] Dando “Enter” eu vou ver que a execução que acontece no console é trazer uma linha escrito node list e abre um número 9, tem um número 9 me indicando qual a quantidade de elementos que ele encontrou com esse seletor, abre um colchete e dentro desse colchete começa cada elemento button encontrado. Eu consigo passar o mouse em cima e ele destacar na nossa página cada um dos elementos que foram encontrados.
+
+[08:19] Se eu clicar nesse triângulo que tem do lado esquerdo do node list, ele vai abrir e mostrar essa lista ainda com o índice do lado, 012345678, então são nove elementos começando do zero ao 8º, somando 9 e cada botão desse elemento.
+
+[08:41] Eu vou executar agora o mesmo código no Chrome para vocês verem a diferença. Então vou recarregar, document.querySelectorAll(‘.tecla’), vou dar o “Enter”. Então também aparece o node list com 9 elementos e o triângulo para abrir e ver os índices dessa lista e também todos os elementos que estão dentro dela.
+
+[09:14] Notem que a lista começa com colchete, então antes de abrir o triângulo vimos todos os elementos, em volta deles tem um colchete, mesma coisa no Firefox, se eu recolher esse triângulo eu consigo ver que elas estão em volta de um colchete. Isso é a característica que estamos trabalhando com listas.
+
+[09:35] E agora precisamos saber como colocar o nosso código para funcionar junto com essa lista. Então no lugar de um querySelector de um botão, no “main.js” eu vou apagar todo esse código, então vocês não precisavam fazer essa repetição que eu fiz, era só para termos noção de quão caótico pode ser.
+
+[09:57] E lá onde eu tenho o querySelector da tecla pom e o onclick eu vou apagar esse código sem dó, quem tiver dó pode comentar, que ele não vai ser comentário, mas não tenham dó de código, pode apagar, e vou usar o querySelector no lugar. Então document.querySelectorAll, agora vamos usar aqui a nossa nova função, querySelectorAll, abre e fecha parênteses, aspas, ponto tecla.
+
+[10:31] E partir da próxima aula vamos ver como fazemos a mesma coisa que estávamos fazendo aqui com onClick agora trabalhando com uma lista.
+

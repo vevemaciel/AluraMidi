@@ -1,0 +1,34 @@
+Transcrição
+[00:00] Eu recarreguei o Chrome e no console eu já obtive um erro. Não precisamos ter medo de erros, precisamos aprender a lidar com os erros e vamos ver que eles nos ajudam a entender o nosso código.
+
+[00:13] Então ele está falando que não consegue ler as propriedades de nulo e ele está tentando ler uma propriedade Play. Outro lugar que podemos conseguir entender melhor nosso erro é abrir outro navegador. Eu estou no Chrome, então vou abrir o Firefox, vou recarregar o meu navegador e ele vai apresentar o mesmo erro, só que um pouco diferente.
+
+[00:33] Então document querySelector is null e está falando que está na linha 3 do nosso arquivo “main.js”. No Chrome também está falando que é na linha 3. Se abrirmos a linha 3, está o nosso código recém-escrito, que document querySelector é nulo.
+
+[00:53] E o que acontece? Ele está dizendo que essa execução não existe e retorna nulo, esse código retorna nulo, portanto, ele não consegue executar o play de alguma coisa que é nula, que não existe. E esse erro está propositalmente aqui para entendermos uma coisa muito importante, que é o local correto do arquivo “main.js”.
+
+[01:20] O navegador lê o nosso arquivo HTML linha por linha e já vai chamando e executando as coisas que são escritas, declaradas no arquivo. Então no momento que o navegador passa na linha 18 e entra no arquivo “main.js” para executar esses códigos e esses códigos dependem do nosso body, esse momento da linha 18, o navegador ainda não chegou no body e não construiu o body, portanto temos um código que depende dessa estrutura do HTML abaixo e que ela não está existindo ainda nesse momento.
+
+[02:06] Então aqui tem uma lição muito importante sobre o local da tag script. Conseguimos colocar a tag script tanto no head quanto no body e em qualquer lugar, mas para decidirmos se vamos colocar no head ou no body, é que se o nosso JavaScript depende da estrutura HTML carregada e pronta, devemos colocá-la dentro do body e ao final do body, antes logo antes do fechamento da tag body e não dentro da tag head. Vamos fazer isso.
+
+[02:43] Então vamos tirar, vou recortar da tag head e vou colocar logo antes da tag body e vou salvar. Se meu arquivo JavaScript tiver um monte de funcionalidades que não dependem do que tem declarado dentro da tag body, então eu posso colocar sim dentro da tag head.
+
+[03:04] Então eu vou salvar, vou voltar no meu navegador e conseguimos resolver o problema do nulo, agora temos um outro problema. E às vezes quando estamos fazendo JavaScript é assim mesmo, temos um problema atrás do outro e isso é muito legal, que vamos aprendendo como a linguagem funciona. Então vou recarregar aqui no Chrome, também no Firefox e eu vi que o erro também aconteceu sobre o play que estamos fazendo.
+
+[03:36] Tem uma coisa muito peculiar da natureza da nossa aplicação, porque precisamos executar um som e o JavaScript, como eu falei para vocês, ele vai sendo lido e executado imediatamente pelo navegador, portanto, o que acontece? Imagina que você abriu um site e quando você abriu o site, você nem fez nada, o site está carregando e já começa a tocar um som, um monte de sons indesejados. Então os navegadores têm uma política de bloquear esse tipo de código, que já executa mídias e sons antes do usuário interagir com a página.
+
+[04:25] Então é esse erro que está acontecendo, há um problema com a permissão e controle dos usuários. Então mesma coisa no Firefox, ele não permite que demos o Play pelo JavaScript antes do usuário fazer algum tipo de atividade na nossa página, interagir com a nossa página. E realmente não faz sentido, não queremos que os sons do nosso Midi sejam reproduzidos ao abrir a página, só queremos que seja reproduzido quando clicamos no botão.
+
+[05:02] Então vamos ter que fazer alguma coisa para guardar esse código do play e ele ser chamado somente quando eu quiser. E quando eu preciso de um código que é chamado somente quando eu preciso, precisamos criar uma função. Então agora vamos abrir nosso arquivo “main.js” e vamos ver como fazemos para criar nossa própria função.
+
+[05:31] Porque até agora usamos funções prontas que já vem no JavaScript ou nos elementos. Então eu vou voltar para minha linha 1 e vou empurrar o meu código mais para baixo dando “Enter” e escrever na linha 1 uma declaração de função, escrevendo a palavra reservada do JavaScript function.
+
+[05:54] Quando eu digito function ele já fica até com uma outra cor e em itálico, justamente identificando que é uma palavra reservada. E quando eu crio uma função, eu preciso dar um nome para essa função. Lembrando que a nossa função vai armazenar esse código que toca o som de algum instrumento, de alguma tecla nossa, portanto vai ser uma função que toca um som. Eu vou colocar o nome dessa função de tocaSom e como ela vai tocar o som da tecla pom, todo instrumento pom, eu vou colocar tocaSomPom para ser mais específica.
+
+[06:38] E continuando na sintaxe de criação de uma função, eu preciso declarar parênteses, abre e fecha parênteses e depois do fechamento dos parênteses, abre e fecha chaves. Dou um “Enter” dentro das chaves e tudo que vai dentro das chaves vai ser o código que vai ser guardado dentro dessa função para ser executado apenas quando a função for chamada por alguém.
+
+[07:07] Então agora eu vou transferir esse código que está como play, posso arrastar com o mouse ou dar um “Ctrl + X”, “Ctrl + V” e vamos salvar o nosso código, posso tirar esses espaços que colocamos, vou salvar esse código e vou voltar para o navegador e vamos ver se aquele erro continua. Vou recarregar. O erro saiu no Firefox e lá no Chrome também saiu.
+
+[07:40] Mas e agora, o que acontece? Eu clico na nossa tecla pom e nada acontece. O que acontece é que a nossa função foi criada, ela existe e ela já está disponível para ser utilizada, inclusive de dentro do console. Se eu pegar e digitar no nosso console do navegador “tocaSom...”, ele até completa para nós, porque ele percebe que dentro do “main.js” já tem funções disponíveis para nós. Então tocaSomPom e lembra, o f significa que é uma função, abre e fecha parênteses para executar tocaSomPom(), quando der “Enter” vai dar play no nosso som.
+
+[08:22] Tocou. Esse undefined que apareceu, vocês não precisam se preocupar também, aparece porque o retorno não está definido e não vamos trabalhar com isso, então está tudo certo. Nossa função já está funcionando, falta só um pequeno detalhe, que vamos ver no nosso próximo vídeo, que é ligar o clique com o botão que já trouxemos para o JavaScript com a função que reproduz o som daquela tecla. Então falta muito pouco para concluirmos a nossa atividade principal do Alura Midi. Até logo.

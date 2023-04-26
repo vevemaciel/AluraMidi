@@ -1,0 +1,23 @@
+
+const listaDeTeclas=document.querySelectorAll('.tecla');
+
+Transcrição
+[00:00] Como vimos no vídeo anterior, conseguimos capturar todos os elementos do nosso teclado, todos os botões valor Alura Midi de uma vez só e obtivemos uma lista elementos. E agora precisamos começar a entender como essas listas funcionam no JavaScript e como podemos automatizar alguns códigos utilizando a lista.
+
+[00:25] Mas primeiro de tudo precisamos deixar nosso código muito legível e muito fácil de entender. Vamos voltar lá no “main.js”, no VS Code e já colocamos o document.querySelectorAll, selecionando todos os elementos com a classe tecla.
+
+[00:46] Porém se batermos o olho de primeira, às vezes fica difícil entender que por trás desse código existe uma lista e uma lista de elementos que compartilham essa mesma classe, portanto, uma coisa que poderíamos fazer para melhorar a legibilidade, o entendimento desse código, é criar alguns nomes que possam nos ajudar entender o código. O ideal seria se tivéssemos no lugar desse document.querySelectorAll, pudéssemos utilizar o português mesmo e algo como "lista de teclas", por exemplo.
+
+[01:34] Que seria uma maneira de conseguir entender que eu sei que tem uma lista e que o que tem dentro dessa lista são teclas. E é possível fazer isso com o JavaScript, usando um recurso da linguagem chamado referências. As referências no JavaScript devem ser criadas ou declaradas com base no valor que elas vão receber e ter que guardar. Por exemplo, a nossa lista de teclas. Será que em algum momento, no nosso JavaScript, na execução do nosso JavaScript a lista de teclas vai se tornar outra coisa? Vai receber um outro valor?
+
+[02:17] Muito provavelmente não e o ideal seria que realmente a lista de teclas sempre armazenasse a mesma lista de teclas, portanto, terá seu valor constante. Porém, se fosse um outro tipo de valor que fosse armazenado nessa referência, que pudesse ter seu valor modificado ao longo do script, essa outra referência poderia ser uma variável, que não é o nosso caso.
+
+[02:47] E o ideal mesmo é usarmos sempre referências constantes, e caso necessitarmos de uma variável a utilizamos como variável. Então como eu crio uma referência constante no JavaScript? Já criamos o nome dela como listaDeTeclas, que seria o ideal e é isso mesmo, podemos criar com o nome que quisermos, porém antes colocamos a declaração dessa referência, no nosso caso vai ter um valor constante, então escrevemos const listaDeTeclas.
+
+[03:31] Então por isso que é importante saber se ela vai ser uma constante, uma variável, porque isso define essa palavra que vamos escrever antes do nome da referência do lado esquerdo. E depois do lado direito temos o sinal de atribuição, que já conhecemos, que vai armazenar o que está do lado direito dentro dessa referência. Então queremos colocar a nossa lista de teclas que está dentro do document.querySelectorAll, armazenado dentro de lista de teclas.
+
+[04:03] Então eu vou recortar o código ou podemos arrastar movendo e vamos colocar para o lado direito do sinal de atribuição. E desta forma conseguimos ter uma lista de teclas guardadas em um nome que faça sentido, que tenha significado, que seja fácil de entender. E a partir da lista de teclas que vamos começar a manipular nossa lista de botões nas nossas próximas aulas.
+
+[04:30] Então inclusive, da forma que eu fiz e declarei, se eu for lá no navegador, então vou no Firefox, vou recarregar Se eu abrir o console e digitar “lista de teclas” ele já vai aparecer para mim até para auto completar, eu vou dar o “Enter” e ele vai aparecer aquela node list.
+
+[04:52] Muito mais fácil trabalhar com lista de teclas do que document.querySelector todo tempo. Ótimo. Então agora que o nosso código está mais fácil de entender, no nosso próximo vídeo vamos conhecer um pouquinho mais de detalhes sobre as listas para definitivamente conseguirmos aplicar a funcionalidade de execução do som de cada instrumento para cada botão. Até lá.

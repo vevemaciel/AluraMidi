@@ -1,0 +1,23 @@
+O que aprendemos?
+PRÓXIMA ATIVIDADE
+
+Nessa aula, você aprendeu:
+Eventos no teclado:
+O que são eventos do teclado e como usá-los: onkeydowne onkeyup. Como adicionar e remover classes em um elemento HTML através do JavaScript, com as funções add e remove do classList.
+
+Condições no código e operadores lógicos:
+O que é o objeto event, como declarar e acessar ele através do parâmetro de uma função atrelada a um evento. A estrutura condicional if e para que ele serve, além de conhecer o operador de igualdade ==, estritamente igual (===), e o operador or (||).
+
+Mais condições:
+A estruturas condicionais if e else juntas. O operador not equals (!=), operador lógico and (&&) e o valor null.
+
+Transcrição
+[00:00] Parabéns, você acaba de chegar no fim do nosso curso de JavaScript. Nesse curso aprendemos a fazer uma série de funcionalidades iniciais com o JavaScript.
+
+[00:15] Criamos uma função que reproduz o som dos instrumentos musicais que estão armazenados dentro de um elemento áudio do HTML e fizemos com que esses sons que foram reproduzidos lá na nossa interface gráfica, o Alura Midi, a nossa aplicação Aura Midi, fosse controlado pelos botões que desenhamos com HTML e CSS, que estavam prontos já e apenas fizemos que os nossos botões funcionassem e reproduzissem o som do instrumento que desejarmos.
+
+[00:52] Então agora, por exemplo, se eu clicar em uma tecla do nosso Alura Midi vai reproduzir um som. Assim como a navegação via teclado, se eu apertar “Enter” também reproduz o som daquela tecla ou a tecla de barra de espaço.
+
+[01:10] Aprendemos no nosso código como fazemos para fazer um código otimizado que percorre por todos os botões, reduzindo repetição de código e fazendo aumentar o reaproveitamento e a manutenção desse código.
+
+[01:27] Portanto, agora você está apta ou apto a fazer a sua primeira página dinâmica com o JavaScript. Faça os exercícios do nosso curso, participe do fórum, ajude outras pessoas que estão fazendo esse curso para fixar o seu conhecimento obtido. Agora eu convido você a avaliar esse curso e contar um pouco mais do que você gostou, qual o exercício que você mais gostou qual a atividade e o que poderia melhorar. E convido também vocês para que façam bons estudos para os nossos próximos cursos. Até logo.
